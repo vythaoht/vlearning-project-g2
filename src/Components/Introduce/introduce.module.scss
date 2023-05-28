@@ -1,0 +1,50 @@
+.gridContainer {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  line-height: 30px;
+
+  h2,
+  span,
+  p {
+    color: white;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  i {
+    margin-right: 10px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .gridItem1 {
+    padding: 20px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color: #41b294;
+    background-image: url("../../../public/image/astronaut.png");
+    background-position: 100% 100%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+  }
+
+  .gridItem2 {
+    padding: 20px;
+    background-color: #f6ba35;
+  }
+  .gridItem3 {
+    padding: 20px;
+    background-color: #5c8295;
+  }
+  .gridItem4 {
+    padding: 20px;
+    background-color: #f6ba35;
+  }
+  .gridItem5 {
+    padding: 20px;
+    background-color: #63c0a8;
+  }
+}

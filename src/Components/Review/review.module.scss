@@ -1,0 +1,48 @@
+.container {
+  margin: 70px 0;
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .symbol {
+      top: -10%;
+      z-index: 1;
+      height: 220px;
+      width: 230px;
+      position: relative;
+      background-color: #ed85ab;
+      border-radius: 10px 100px 110px;
+
+      img {
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        right: 5%;
+      }
+    }
+  }
+
+  .right {
+    line-height: 30px;
+    i {
+      color: #ed85ab;
+      font-size: 36px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-weight: 500;
+    }
+
+    p:first-of-type {
+      color: #ed85ab;
+      font-weight: 500;
+    }
+
+    p:last-of-type {
+      color: darkgray;
+      font-weight: 500;
+    }
+  }
+}

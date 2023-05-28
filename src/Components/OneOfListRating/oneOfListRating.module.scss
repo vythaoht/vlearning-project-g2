@@ -1,0 +1,26 @@
+.ratingItem {
+  background-color: #fff;
+  //   background-clip: border-box;
+  //   border: 1px solid rgba(0, 0, 0, 0.125);
+  //   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  text-align: center;
+  line-height: 28px;
+  padding: 20px;
+
+  .circleImg {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .icon {
+    color: #f6ba35;
+    font-weight: bold;
+  }
+
+  p:last-of-type {
+    color: darkgray;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

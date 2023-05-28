@@ -9,7 +9,7 @@ function HomeTemplate({ }: Props) {
   return (
     <div>
       <Header />
-      <div style={{ marginTop: "103.5px" }}>
+      <div style={{ marginTop: "103.5px", padding: "0 50px" }}>
         <Outlet />
       </div>
       <Footer />

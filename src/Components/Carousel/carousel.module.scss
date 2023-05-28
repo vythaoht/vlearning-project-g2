@@ -1,0 +1,29 @@
+.left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  .arrowCloud {
+    position: absolute;
+    top: 10%;
+    right: 22%;
+  }
+
+  h1 {
+    font-size: 46px;
+    line-height: 56px;
+
+    &:last-of-type {
+      color: #41b294;
+    }
+  }
+}
+
+.right {
+  .deskMate {
+    img {
+      width: 100%;
+    }
+  }
+}

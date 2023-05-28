@@ -1,12 +1,13 @@
+import { ReactNode } from "react";
 import styles from "./button.module.scss";
 
 type Props = {
     onClick?: () => void;
-    title: string;
+    title: string | ReactNode;
     color?: string;
     bgColor?: string;
     borderColor?: string;
-    margin?: number;
+    margin?: string;
 };
 
 function Button({

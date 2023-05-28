@@ -1,0 +1,97 @@
+.footer {
+  background-color: #f0f8ff;
+  padding: 24px 50px;
+  line-height: 30px;
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  ul {
+    list-style: none;
+    color: #000;
+  }
+
+  .container {
+    .cardTitle {
+      display: flex;
+
+      .left {
+        .titleOne {
+          color: #41b294;
+          text-shadow: 5px -2px 3px #54d2c0;
+          font-size: 46px;
+          font-weight: bold;
+        }
+        .titleTwo {
+          color: #000;
+          text-shadow: 5px -2px 3px #54d2c0;
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        .listStyleIcon {
+          font-weight: bold;
+          i {
+            border-radius: 50%;
+            background-color: #41b294;
+            color: #fff;
+            margin-right: 15px;
+            padding: 8px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .middle {
+        display: flex;
+        justify-content: space-evenly;
+        font-weight: bold;
+
+        ul li i {
+          margin-right: 5px;
+        }
+      }
+
+      .right {
+        .styleForm {
+          display: flex;
+          flex-direction: column;
+
+          input {
+            width: 70%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #41b294;
+          }
+        }
+      }
+    }
+
+    hr {
+      margin: 20px 0;
+      color: darkgray;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: space-evenly;
+
+      i {
+        border-radius: 50%;
+        padding: 10px;
+        background-color: #41b294;
+        color: white;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .backToTop {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 100;
+  }
+}

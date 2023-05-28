@@ -1,0 +1,23 @@
+.container {
+  background-color: #f0f8ff;
+  padding: 46px 0;
+  margin: 92px -50px 0;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+
+    h1 {
+      color: #41b294;
+      font-size: 46px;
+      font-weight: bold;
+    }
+
+    p {
+      font-weight: bold;
+    }
+  }
+}
