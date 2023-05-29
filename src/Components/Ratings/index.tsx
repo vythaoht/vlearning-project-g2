@@ -18,10 +18,12 @@ function Ratings({ }: Props) {
                 modules={[Pagination]}
                 className="mySwiper"
                 slidesPerView={6}
-                spaceBetween={10}
+                spaceBetween={0}
                 pagination={{
                     clickable: true,
-                }}>
+                }}
+                wrapperClass={styles.pagination}
+            >
                 <SwiperSlide>
                     <OneOfListRating
                         image='./image/one.jpg'
