@@ -1,0 +1,33 @@
+.container {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("../../../public/image/media.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 -50px;
+  padding: 50px;
+
+  .title {
+    color: #f6ba35;
+    text-align: center;
+  }
+
+  .gridList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    .gridItem {
+      color: white;
+      text-align: left;
+      img {
+        margin: 20px 0px;
+        width: 100%;
+      }
+    }
+  }
+}

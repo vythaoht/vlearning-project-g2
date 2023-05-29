@@ -43,7 +43,7 @@ function Introduce({ }: Props) {
                     </li>
                 </ul>
             </div>
-            <div className={styles.gridItem2}>
+            <div className={cls(styles.gridItem, styles.gridItem2)}>
                 <h2>LỘ TRÌNH PHÙ HỢP</h2>
                 <ul>
                     <li>
@@ -62,7 +62,7 @@ function Introduce({ }: Props) {
                     </li>
                 </ul>
             </div>
-            <div className={styles.gridItem3}>
+            <div className={cls(styles.gridItem, styles.gridItem3)}>
                 <h2>GIẢNG VIÊN</h2>
                 <ul>
                     <li>
@@ -85,7 +85,7 @@ function Introduce({ }: Props) {
                     </li>
                 </ul>
             </div>
-            <div className={styles.gridItem4}>
+            <div className={cls(styles.gridItem, styles.gridItem4)}>
                 <h2>HỆ THỐNG HỌC TẬP</h2>
                 <ul>
                     <li>
@@ -110,7 +110,7 @@ function Introduce({ }: Props) {
                 </ul>
 
             </div>
-            <div className={styles.gridItem5}>
+            <div className={cls(styles.gridItem, styles.gridItem5)}>
                 <h2>CHỨNG NHẬN</h2>
                 <ul>
                     <li>

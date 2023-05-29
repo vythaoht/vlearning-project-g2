@@ -30,20 +30,20 @@ function Footer({ }: Props) {
       <div className={styles.container}>
         <div className={cls("row", styles.cardTitle)}>
           <div className={cls("col-4", styles.left)}>
-            <Link to="#">
+            <Link to="#" className={styles.name}>
               <span className={styles.titleOne}>V</span>
               <span className={styles.titleTwo}> learning</span>
             </Link>
             <ul className={styles.listStyleIcon}>
-              <li>
+              <li className={styles.icon}>
                 <i className="fa fa-phone"></i>
                 <span>1800-123-4567</span>
               </li>
-              <li>
+              <li className={styles.icon}>
                 <i className="fa fa-envelope-open-text"></i>
                 <span>bonniesoft@gmail.com</span>
               </li>
-              <li>
+              <li className={styles.icon}>
                 <i className="fa fa-map-marker-alt"></i>
                 <span>Thành phố Hồ Chí Minh</span>
               </li>
@@ -54,19 +54,19 @@ function Footer({ }: Props) {
             <div>
               <h2>Liên kết</h2>
               <ul>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Trang chủ</Link>
                 </li>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Dịch vụ</Link>
                 </li>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Nhóm</Link>
                 </li>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Blog</Link>
                 </li>
@@ -76,19 +76,19 @@ function Footer({ }: Props) {
             <div>
               <h2>Khóa học</h2>
               <ul>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Front end</Link>
                 </li>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Back end</Link>
                 </li>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Full stack</Link>
                 </li>
-                <li>
+                <li className={styles.icon}>
                   <i className="fa fa-angle-right"></i>
                   <Link to="#">Node JS</Link>
                 </li>
@@ -110,7 +110,7 @@ function Footer({ }: Props) {
         <hr />
         <div className={styles.contact}>
           <div><p>Copyright © 2021. All rights reserved.</p></div>
-          <div>
+          <div className={styles.contactIcon}>
             <i className="fab fa-instagram"></i>
             <i className="fab fa-facebook"></i>
             <i className="fab fa-twitter"></i>

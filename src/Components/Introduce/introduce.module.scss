@@ -20,6 +20,33 @@
     color: white;
   }
 
+  .gridItem {
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      z-index: 2;
+      background: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0) 0,
+        hsla(0, 0%, 100%, 0.3)
+      );
+      transform: skewX(-17deg);
+      transition: all 1s;
+    }
+
+    &:hover::after {
+      left: 100%;
+    }
+  }
+
   .gridItem1 {
     padding: 20px;
     grid-row-start: 1;

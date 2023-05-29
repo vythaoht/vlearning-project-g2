@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../../Core/Button";
 import styles from "./header.module.scss";
 
@@ -8,9 +9,9 @@ function Header({ }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <a>
+        <Link to="/">
           <img src="/image/logo.png" alt="#" height="76" />
-        </a>
+        </Link>
         <div>
           <form className={styles.formContainer}>
             <input type="text" placeholder="Tìm kiếm" />
@@ -23,19 +24,26 @@ function Header({ }: Props) {
         <ul className={styles.options}>
           <li>
             <i className="fa fa-list-ul"></i>
-            <p>DANH MỤC</p>
+            <p>
+              <Link to="/">DANH MỤC</Link>
+            </p>
           </li>
-          <li>KHOÁ HỌC</li>
-          <li>BLOG</li>
-          <li>SỰ KIỆN</li>
-          <li>THÔNG TIN</li>
+          <li>
+            <Link to="/event">KHOÁ HỌC</Link>
+          </li>
+          <li>
+            <Link to="/event">SỰ KIỆN</Link>
+          </li>
+          <li>
+            <Link to="/information">THÔNG TIN</Link>
+          </li>
         </ul>
       </div>
 
       <div className={styles.right}>
         <Button title="Đăng Nhập" />
       </div>
-    </div >
+    </div>
   );
 }
 

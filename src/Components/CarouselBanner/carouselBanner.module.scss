@@ -1,0 +1,40 @@
+.container {
+  background-image: url("../../../public/image/tech.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding: 150px 0;
+  margin: 0 -50px;
+  filter: grayscale(50%);
+
+  .timeEvent {
+    text-align: right;
+    padding: 0 50px;
+
+    .countdown {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      text-align: center;
+
+      .timing {
+        margin-left: 60px;
+        p:first-of-type {
+          font-size: 60px;
+          font-weight: bold;
+        }
+        small {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .title {
+      margin-top: 30px;
+      font-size: 20px;
+      line-height: 40px;
+    }
+  }
+}

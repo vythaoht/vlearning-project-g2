@@ -22,8 +22,97 @@
 
 .right {
   .deskMate {
-    img {
+    .rela {
       width: 100%;
+      position: relative;
     }
+    .abs1 {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 25%;
+      right: 40%;
+      animation-name: cloudy1;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+    .abs2 {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 45%;
+      right: 40%;
+      animation-name: cloudy2;
+      animation-timing-function: linear;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+
+    .abs3 {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 62%;
+      right: 24%;
+      animation-name: cloudy3;
+      animation-timing-function: ease-in-out;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      transform: rotate(-30deg);
+    }
+
+    .abs4 {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 70%;
+      right: 34%;
+      animation-name: cloudy4;
+      animation-timing-function: ease-in-out;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      transform: translateY(0px);
+    }
+  }
+}
+
+@keyframes cloudy1 {
+  from {
+    right: 40%;
+  }
+  to {
+    right: 35%;
+    opacity: 0;
+  }
+}
+
+@keyframes cloudy2 {
+  from {
+    right: 30%;
+  }
+  to {
+    right: 20%;
+    opacity: 0;
+  }
+}
+
+@keyframes cloudy3 {
+  from {
+    transform: rotate(-30deg);
+  }
+  to {
+    transform: rotate(+30deg);
+  }
+}
+
+@keyframes cloudy4 {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
   }
 }

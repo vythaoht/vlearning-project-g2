@@ -55,6 +55,14 @@
         i {
           margin-right: 5px;
         }
+
+        a {
+          transition: all 0.3s;
+
+          &:hover {
+            color: #41b294;
+          }
+        }
       }
     }
   }
