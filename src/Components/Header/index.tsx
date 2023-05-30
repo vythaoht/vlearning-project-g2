@@ -30,27 +30,27 @@ function Header({ }: Props) {
             </p>
             <ul className={styles.listingOfFistOption}>
               <li>
-                <Link to="">LẬP TRÌNH BACK END</Link>
+                <Link to="/category/programbackend">LẬP TRÌNH BACK END</Link>
               </li>
               <li>
-                <Link to="">THIẾT KẾ WEB</Link>
+                <Link to="/category/webdesign">THIẾT KẾ WEB</Link>
               </li>
               <li>
-                <Link to="">LẬP TRÌNH DI ĐỘNG</Link>
+                <Link to="/category/programmobile">LẬP TRÌNH DI ĐỘNG</Link>
               </li>
               <li>
-                <Link to="">LẬP TRÌNH FRONT END</Link>
+                <Link to="/category/programfrontend">LẬP TRÌNH FRONT END</Link>
               </li>
               <li>
-                <Link to="">LẬP TRÌNH FULL STACK</Link>
+                <Link to="/category/programfullstack">LẬP TRÌNH FULL STACK</Link>
               </li>
               <li>
-                <Link to="">TƯ DUY LẬP TRÌNH</Link>
+                <Link to="/category/thinkingprogram">TƯ DUY LẬP TRÌNH</Link>
               </li>
             </ul>
           </li>
           <li className={styles.listItem}>
-            <Link to="">KHOÁ HỌC</Link>
+            <Link to="/course">KHOÁ HỌC</Link>
           </li>
 
           <li className={styles.listItem}>
