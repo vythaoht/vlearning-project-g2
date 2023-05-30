@@ -12,8 +12,16 @@
       margin: 20px 0;
     }
 
-    p {
-      color: #8c8c8c;
+    .letter::first-letter {
+      line-height: 40px;
+      color: #cd5c5c;
+      float: left;
+      padding-top: 20px;
+      padding-right: 5px;
+      font-size: calc(60px + 0.75vw);
+    }
+    .clear {
+      clear: both;
     }
   }
 

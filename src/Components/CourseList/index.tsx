@@ -1,69 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Card from "../../Core/Card";
+import { courseCategoriesRequest } from "../../Redux/Services/showCourseAPI";
+import { fetchCourseCategoriesAction } from "../../Redux/Slices/courseCategoriesSlice";
+import { DispatchType, RootState } from "../../Redux/store";
 import styles from "./courseList.module.scss";
 
 type Props = {};
 
 function CourseList({ }: Props) {
+    const dispatch: DispatchType = useDispatch();
+    useEffect(() => {
+        dispatch(fetchCourseCategoriesAction());
+    }, []);
+
+    const { categories } = useSelector(
+        (state: RootState) => state.courseCategoriesReducer
+    );
+
     return (
         <div className={styles.container}>
-            <p>
-                <Link to="#">Khoá học phổ biến</Link>
-            </p>
-            <div className="row gutter">
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-            </div>
-
-            <p>
-                <Link to="#">Khoá học tham khảo</Link>
-            </p>
-            <div className="row gutter">
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-            </div>
-
-            <p>
-                <Link to="#">Khoá học Front End React JS</Link>
-            </p>
-            <div className="row gutter">
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-                <div className="col-3 colter">
-                    <Card />
-                </div>
-            </div>
+            {categories.map((item) => {
+                return (
+                    <div key={item.maDanhMuc}>
+                        <p>
+                            <Link to="#">{item.tenDanhMuc}</Link>
+                        </p>
+                        <div className="row gutter">
+                            {item.khoaHocLienQuan.map((course) => {
+                                return (
+                                    <div key={course.maKhoaHoc} className="col-3 colter">
+                                        <Card course={course} />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                );
+            })}
         </div>
-
-
     );
 }
 

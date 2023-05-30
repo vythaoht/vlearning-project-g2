@@ -1,0 +1,30 @@
+.container {
+  background-image: url("../../../public/image/404.gif");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+
+  .content {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    text-align: center;
+    transform: translate(-50%);
+
+    h1 {
+      color: #f6ba35;
+    }
+  }
+
+  .error {
+    position: absolute;
+    left: 45%;
+    top: 20%;
+    text-align: center;
+    transform: translate(-50%);
+    color: #ed85ab;
+    font-size: 80px;
+    transform: rotate(10deg);
+  }
+}

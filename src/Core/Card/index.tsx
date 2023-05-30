@@ -1,37 +1,46 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Course } from '../../Redux/Slices/courseCategoriesSlice'
 import styles from "./card.module.scss"
+import cls from "classnames"
 
-type Props = {}
+type Props = {
+    course: Course
+}
 
-function Card({ }: Props) {
+function Card({ course }: Props) {
+    const {
+        hinhAnh: img,
+        tenKhoaHoc,
+        moTa,
+        nguoiTao,
+        luotXem
+    } = course;
     return (
         <div className={styles.cardItem}>
             <Link to={""}>
                 <div className={styles.part1}>
                     <span className={styles.status}>Yêu Thích</span>
-                    <img src="https://picsum.photos/200/200" alt="#" />
-                    <span className={styles.title}>Lập Trình Web</span>
+                    <img src={img} alt={tenKhoaHoc}
+                        onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = "./image/default.jpeg"
+                        }}
+                    />
+                    <span className={styles.title}>{tenKhoaHoc}</span>
                 </div>
                 <div className={styles.part2}>
-                    <article>Lorem ipsum dolor sit amet consetr adipisg elit consetr consetr.</article>
-
+                    <article>{moTa}</article>
                 </div>
                 <hr />
                 <div className={styles.part3}>
-                    <div className='row'>
+                    <div className={cls(styles.author)}>
                         <img src="./image/human.png" alt="#" width="45" height="45" />
-                        <span>Elon Musk</span>
+                        <span>{nguoiTao.taiKhoan}</span>
                     </div>
-                    <div className={styles.price}>
-                        <p>800.000
-                            <sup>đ</sup>
-                        </p>
-                        <p>400.000
-                            <sup>đ</sup>
-                            <i className="fa fa-tag"></i>
-                        </p>
-
+                    <div className={styles.viewer}>
+                        <p>Lượt truy cập: {luotXem}</p>
+                        <i className="fa fa-eye"></i>
                     </div>
                 </div>
             </Link>
