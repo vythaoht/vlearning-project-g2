@@ -14,10 +14,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/event" element={<EventPage />} />
           <Route path="/information" element={<InformationPage />} />
+          <Route path="/loading" element={<Loading />} />
         </Route>
-
-        <Route path="/loading" element={<Loading />} />
-
       </Routes>
     </BrowserRouter>
   );

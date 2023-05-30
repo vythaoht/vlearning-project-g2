@@ -31,7 +31,7 @@ function CourseList({ }: Props) {
                             {item.khoaHocLienQuan.map((course) => {
                                 return (
                                     <div key={course.maKhoaHoc} className="col-3 colter">
-                                        <Card course={course} />
+                                        <Card course={course} isTag />
                                     </div>
                                 );
                             })}

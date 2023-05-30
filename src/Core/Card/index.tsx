@@ -5,10 +5,11 @@ import styles from "./card.module.scss"
 import cls from "classnames"
 
 type Props = {
-    course: Course
+    course: Course,
+    isTag?: boolean,
 }
 
-function Card({ course }: Props) {
+function Card({ course, isTag }: Props) {
     const {
         hinhAnh: img,
         tenKhoaHoc,
@@ -20,7 +21,10 @@ function Card({ course }: Props) {
         <div className={styles.cardItem}>
             <Link to={""}>
                 <div className={styles.part1}>
-                    <span className={styles.status}>Yêu Thích</span>
+                    {
+                        isTag && <span className={styles.status}>Yêu Thích</span>
+                    }
+
                     <img src={img} alt={tenKhoaHoc}
                         onError={(e) => {
                             e.currentTarget.onerror = null;
