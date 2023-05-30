@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../../Core/Button";
 import styles from "./header.module.scss";
+import cls from "classnames";
 
 type Props = {};
 
@@ -22,19 +23,41 @@ function Header({ }: Props) {
 
       <div className={styles.between}>
         <ul className={styles.options}>
-          <li>
+          <li className={cls(styles.firstOfList, styles.listItem)}>
             <i className="fa fa-list-ul"></i>
             <p>
               <Link to="/">DANH MỤC</Link>
             </p>
+            <ul className={styles.listingOfFistOption}>
+              <li>
+                <Link to="">LẬP TRÌNH BACK END</Link>
+              </li>
+              <li>
+                <Link to="">THIẾT KẾ WEB</Link>
+              </li>
+              <li>
+                <Link to="">LẬP TRÌNH DI ĐỘNG</Link>
+              </li>
+              <li>
+                <Link to="">LẬP TRÌNH FRONT END</Link>
+              </li>
+              <li>
+                <Link to="">LẬP TRÌNH FULL STACK</Link>
+              </li>
+              <li>
+                <Link to="">TƯ DUY LẬP TRÌNH</Link>
+              </li>
+            </ul>
           </li>
-          <li>
-            <Link to="/event">KHOÁ HỌC</Link>
+          <li className={styles.listItem}>
+            <Link to="">KHOÁ HỌC</Link>
           </li>
-          <li>
-            <Link to="/event">SỰ KIỆN</Link>
+
+          <li className={styles.listItem}>
+            <Link to="/loading">SỰ KIỆN</Link>
           </li>
-          <li>
+
+          <li className={styles.listItem}>
             <Link to="/information">THÔNG TIN</Link>
           </li>
         </ul>

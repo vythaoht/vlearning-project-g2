@@ -3,7 +3,7 @@
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   transition: all 0.5s;
-
+  min-height: 390px;
   &:hover {
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
   }
@@ -41,32 +41,39 @@
     .part2 {
       font-weight: bold;
       padding: 20px 26px 10px;
+      min-height: 90px;
+      article {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
     }
 
     .part3 {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 10px 26px;
 
-      img {
-        margin-right: 10px;
+      .author {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        img {
+          margin-right: 10px;
+        }
       }
 
-      .price {
-        p:first-child {
-          text-decoration: line-through;
-          font-size: 12px;
-        }
-        p:last-of-type {
-          color: #41b294;
-          font-weight: bold;
+      .viewer {
+        display: flex;
+        align-items: center;
 
-          i {
-            color: red;
-            font-size: 24px;
-            margin-left: 5px;
-          }
+        p {
+          margin: 0;
+        }
+
+        i {
+          margin-left: 5px;
+          color: darkgrey;
         }
       }
     }
