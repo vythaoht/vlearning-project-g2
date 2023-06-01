@@ -61,7 +61,7 @@ export const fetchCourseCategoriesAction = createAsyncThunk(
     try {
       const data = await courseCategoriesRequest();
 
-      let newData: Category[] = data.slice(0, 3);
+      let newData: Category[] = data.slice(0);
       // chay vong lap de call api lay khoa hoc theo tung danh muc
       const temp = newData.map(async (item) => {
         const categoryId = item.maDanhMuc;

@@ -23,6 +23,18 @@ function Ratings({ }: Props) {
                     clickable: true,
                 }}
                 wrapperClass={styles.pagination}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 2
+                    },
+                    768: {
+                        slidesPerView: 3
+                    },
+                    1200: {
+                        slidesPerView: 6
+                    }
+                }}
+            // centeredSlides={true}
             >
                 <SwiperSlide>
                     <OneOfListRating
@@ -63,7 +75,7 @@ function Ratings({ }: Props) {
                     <OneOfListRating
                         image='./image/six.jpg'
                         name="Hoàng Nam"
-                        skill="Chuyên gia lĩnh vực PHP"
+                        skill="Chuyên gia lĩnh vực ngành PHP"
                     />
                 </SwiperSlide>
                 <SwiperSlide>

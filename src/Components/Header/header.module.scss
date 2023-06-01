@@ -9,6 +9,9 @@
   left: 0;
   background-color: #fff;
   z-index: 10;
+  @media screen and (max-width: 992px) {
+    display: block;
+  }
 
   .left {
     display: flex;
@@ -38,6 +41,11 @@
         font-size: 18px;
         background-color: rgb(236, 236, 236);
       }
+    }
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+      justify-content: space-between;
     }
   }
 
@@ -111,6 +119,29 @@
           }
         }
       }
+    }
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+
+      .options {
+        justify-content: space-around;
+        margin: 20px 0;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .options {
+        li a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .right {
+    @media screen and (max-width: 992px) {
+      margin: 24px;
     }
   }
 }

@@ -1,12 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Core/Button";
 import styles from "./header.module.scss";
 import cls from "classnames";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/store";
 
-type Props = {};
+type Props = {
+};
 
 function Header({ }: Props) {
+  const inputSearchRef = useRef("");
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    inputSearchRef.current = value;
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate(`/searching?query=${inputSearchRef.current}`);
+  };
+
+  const { categories } = useSelector((state: RootState) => {
+    return state.courseCategoriesReducer;
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -14,8 +34,8 @@ function Header({ }: Props) {
           <img src="/image/logo.png" alt="#" height="76" />
         </Link>
         <div>
-          <form className={styles.formContainer}>
-            <input type="text" placeholder="Tìm kiếm" />
+          <form className={styles.formContainer} onSubmit={handleSearch}>
+            <input type="text" placeholder="Tìm kiếm" onChange={handleChange} />
             <i className="fa fa-search"></i>
           </form>
         </div>
@@ -29,26 +49,16 @@ function Header({ }: Props) {
               <Link to="/">DANH MỤC</Link>
             </p>
             <ul className={styles.listingOfFistOption}>
-              <li>
-                <Link to="/category/programbackend">LẬP TRÌNH BACK END</Link>
-              </li>
-              <li>
-                <Link to="/category/webdesign">THIẾT KẾ WEB</Link>
-              </li>
-              <li>
-                <Link to="/category/programmobile">LẬP TRÌNH DI ĐỘNG</Link>
-              </li>
-              <li>
-                <Link to="/category/programfrontend">LẬP TRÌNH FRONT END</Link>
-              </li>
-              <li>
-                <Link to="/category/programfullstack">LẬP TRÌNH FULL STACK</Link>
-              </li>
-              <li>
-                <Link to="/category/thinkingprogram">TƯ DUY LẬP TRÌNH</Link>
-              </li>
+              {categories.map((item) => {
+                return (
+                  <li key={item.maDanhMuc}>
+                    <Link to={`/category/${item.maDanhMuc}`}>{item.tenDanhMuc}</Link>
+                  </li>
+                );
+              })}
             </ul>
           </li>
+
           <li className={styles.listItem}>
             <Link to="/course">KHOÁ HỌC</Link>
           </li>

@@ -15,7 +15,6 @@ function Footer({ }: Props) {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      console.log(window.scrollY);
       if (window.scrollY > 1000 && !toggleBackToTop) {
         setToggleBackToTop(true)
       } else {
@@ -107,6 +106,7 @@ function Footer({ }: Props) {
             <Button title='ĐĂNG KÝ' />
           </div>
         </div>
+
         <hr />
         <div className={styles.contact}>
           <div><p>Copyright © 2021. All rights reserved.</p></div>

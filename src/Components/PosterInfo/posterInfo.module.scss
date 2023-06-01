@@ -21,4 +21,18 @@
       color: #fff;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .content {
+      h2 {
+        font-size: 24px;
+      }
+      h1 {
+        font-size: 34px;
+      }
+      h3 {
+        font-size: 20px;
+      }
+    }
+  }
 }
