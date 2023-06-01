@@ -52,7 +52,7 @@ function Header({ }: Props) {
               {categories.map((item) => {
                 return (
                   <li key={item.maDanhMuc}>
-                    <Link to="">{item.tenDanhMuc}</Link>
+                    <Link to={`/category/${item.maDanhMuc}`}>{item.tenDanhMuc}</Link>
                   </li>
                 );
               })}
@@ -60,7 +60,7 @@ function Header({ }: Props) {
           </li>
 
           <li className={styles.listItem}>
-            <Link to="">KHOÁ HỌC</Link>
+            <Link to="/course">KHOÁ HỌC</Link>
           </li>
 
           <li className={styles.listItem}>

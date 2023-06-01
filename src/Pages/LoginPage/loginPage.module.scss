@@ -1,0 +1,163 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100,300;400;500;700;900&family=Sedgwick+Ave+Display&display=swap');
+
+.login {
+    background-image: url('../../../public/image/bg-login.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    a {
+        color: #36867b;
+        font-size: 0.9fr;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+
+    button {
+        color: #fff;
+        background-color: #36867b;
+        border: 1px solid #36867b;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 20px;
+
+        &:active {
+            transform: scale(.95);
+        }
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: .5px;
+        margin: 20px 0 30px;
+    }
+
+    .overlay__button {
+        background-color: #36867b;
+        border-color: #fff;
+    }
+
+    .login__formAll {
+        margin: auto;
+        padding: 0 15px 0 15px;
+
+        .container {
+            width: 80vw;
+            height: 83vh;
+            min-width: 100%;
+            min-height: 100%;
+            padding: 24px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+            position: relative;
+            overflow: hidden;
+
+            .form__content {
+                position: absolute;
+                top: 0;
+                // left: 0;
+                height: 100%;
+                transition: all .5s ease-in-out;
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0 50px;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                input {
+                    background: #eee;
+                    width: 100%;
+                    padding: 10px 15px;
+                    margin: 5px 0;
+                    border: none;
+                }
+
+                .login__box {
+                    height: 100%;
+                }
+            }
+
+            .login__content {
+                left: 0;
+                width: 50%;
+                z-index: 2;
+            }
+
+            .register__content {
+                left: 0;
+                width: 50%;
+                z-index: 1;
+                opacity: 0;
+            }
+
+
+
+            .overlay__container {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 50%;
+                overflow: hidden;
+                z-index: 100;
+                height: 100%;
+                transition: transform .6s ease-in-out;
+
+                .overlay {
+                    background-image: url('../../../public/image/bg-all.png');
+                    background-size: cover;
+                    // background-repeat: no-repeat;
+                    color: #fff;
+                    position: relative;
+                    // top: 0;
+                    left: -100%;
+                    width: 200%;
+                    height: 100%;
+                    transition: transform .6s ease-in-out;
+
+                    .overlay__panel {
+                        position: absolute;
+                        top: 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0 40px;
+                        height: 100%;
+                        width: 50%;
+                        text-align: center;
+                        transition: transform .6s ease-in-out;
+                    }
+
+                    .overlay__left {
+                        transform: translateX(-20%);
+                    }
+
+                    .overlay__right {
+                        right: 0;
+                        transform: translateX(0);
+                    }
+                }
+            }
+
+            &.right-panel-active .overlay {
+                transform: translateX(50%);
+            }
+        }
+    }
+}
