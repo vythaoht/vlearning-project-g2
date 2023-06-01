@@ -1,5 +1,12 @@
 .container {
   margin: 70px 0;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .left {
     display: flex;
     justify-content: center;

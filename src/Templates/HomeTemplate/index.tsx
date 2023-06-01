@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet } from "react-router-dom"
 import Footer from '../../Components/Footer'
 import Header from '../../Components/Header'
+import styles from "./homeTemplate.module.scss"
 
 type Props = {}
 
@@ -9,7 +10,7 @@ function HomeTemplate({ }: Props) {
   return (
     <div>
       <Header />
-      <div style={{ marginTop: "103.5px", padding: "0 50px" }}>
+      <div className={styles.outletNormal}>
         <Outlet />
       </div>
       <Footer />

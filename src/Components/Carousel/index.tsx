@@ -8,7 +8,7 @@ type Props = {}
 
 function Carousel({ }: Props) {
     return (
-        <div className="row">
+        <div className={cls("row", styles.container)}>
             <div className={cls("col-6", styles.left)}>
                 <div>
                     <div className={styles.arrowCloud}>

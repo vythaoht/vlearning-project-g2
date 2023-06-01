@@ -4,6 +4,7 @@ import EventPage from "./Pages/EventPage";
 import HomePage from "./Pages/HomePage";
 import InformationPage from "./Pages/InformationPage";
 import Loading from "./Pages/LoadingPage";
+import SearchingCoursePage from "./Pages/SearchingCoursePage";
 import HomeTemplate from "./Templates/HomeTemplate";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/event" element={<EventPage />} />
           <Route path="/information" element={<InformationPage />} />
           <Route path="/loading" element={<Loading />} />
+          <Route path="/searching" element={<SearchingCoursePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

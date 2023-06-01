@@ -19,7 +19,7 @@ function MoreInfo({ }: Props) {
                 </div>
             </div>
 
-            <div className={cls("row", styles.container)}>
+            <div className={cls("row", styles.container, styles.reverse)}>
                 <div className={cls("col-6", styles.right)}>
                     <img src="./image/edu.png" alt="#" />
                 </div>
@@ -44,7 +44,7 @@ function MoreInfo({ }: Props) {
                 </div>
             </div>
 
-            <div className={cls("row", styles.container)}>
+            <div className={cls("row", styles.container, styles.reverse)}>
                 <div className={cls("col-6", styles.right)}>
                     <img src="./image/student.png" alt="#" />
                 </div>
