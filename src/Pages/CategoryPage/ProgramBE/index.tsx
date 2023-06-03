@@ -7,41 +7,44 @@ import Card from '../../../Core/Card';
 import cls from 'classnames'
 import { Course, fetchCourseCategoriesByIdAction } from '../../../Redux/Slices/courseCategoriesByIdSlice';
 
-type Props = {}
+type Props = {
+  title: string
+}
 
-function ProgramBE({ }: Props) {
+function ProgramBE({ title }: Props) {
   const { maDanhMuc } = useParams();
 
-  const { categories } = useSelector(
+  const { courses } = useSelector(
     (state: RootState) => state.courseCategoriesByIdReducer
   );
 
   const dispatch: DispatchType = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchCourseCategoriesByIdAction(maDanhMuc || ""));
-  }, [categories]);
+    if (maDanhMuc) {
+      dispatch(fetchCourseCategoriesByIdAction(maDanhMuc));
+    }
+  }, [maDanhMuc]);
 
   return (
     <section className={styles.programBE}>
       <div className={styles.tagName}>
         <button className={styles.program__name}>
           <i className="fas fa-desktop"></i>
-          <span className="ml-2">Lập trình Backend</span>
+          <span className="ml-2">{title}</span>
         </button>
       </div>
 
       <div className={styles.programBE__item}>
-        {categories?.map((course: Course) => {
-          return (
-            <div key={course.maKhoaHoc}>
-              <div className={cls("row gutter", styles.items)}>
-                <div className="col-6 col-4 col-3 colter">
-                  <Card course={course} />
-                </div>
+        <div className={cls("row gutter", styles.items)}>
+          {courses?.map((course) => {
+            return (
+              <div key={course.maKhoaHoc} className="col-6 col-4 col-3 colter">
+                <Card course={course} />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   )

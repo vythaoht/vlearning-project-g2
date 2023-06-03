@@ -1,85 +1,77 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-    coursesByCategoryIdRequest,
-} from "../Services/showCourseAPI";
-
-type Category = {
-    maDanhMuc: string,
-    tenDanhMuc: string,
-}
+import { coursesByCategoryIdRequest } from "../Services/showCourseAPI";
 
 export type Course = {
-    maKhoaHoc: string;
-    biDanh: string;
-    tenKhoaHoc: string;
-    moTa: string;
-    luotXem: number;
-    hinhAnh: string;
-    maNhom: string;
-    ngayTao: string;
-    soLuongHocVien: number;
-    nguoiTao: {
-        taiKhoan: string;
-        hoTen: string;
-        maLoaiNguoiDung: string;
-        tenLoaiNguoiDung: string;
-    };
-    danhMucKhoaHoc: {
-        maDanhMucKhoahoc: string;
-        tenDanhMucKhoaHoc: string;
-    };
+  maKhoaHoc: string;
+  biDanh: string;
+  tenKhoaHoc: string;
+  moTa: string;
+  luotXem: number;
+  hinhAnh: string;
+  maNhom: string;
+  ngayTao: string;
+  soLuongHocVien: number;
+  nguoiTao: {
+    taiKhoan: string;
+    hoTen: string;
+    maLoaiNguoiDung: string;
+    tenLoaiNguoiDung: string;
+  };
+  danhMucKhoaHoc: {
+    maDanhMucKhoahoc: string;
+    tenDanhMucKhoaHoc: string;
+  };
 };
 
 type InitialStateTypes = {
-    categories: Category[];
-    isLoading: boolean;
-    isError: boolean;
+  courses: Course[];
+  isLoading: boolean;
+  isError: boolean;
 };
 
 const initialState: InitialStateTypes = {
-    categories: [],
-    isLoading: false,
-    isError: false,
+  courses: [],
+  isLoading: false,
+  isError: false,
 };
 
-const SLICE_NAMESPACE = "courseCategoriesByIdSlice";
+const SLICE_NAMESPACE = "courseCoursesByIdSlice";
 
 export const fetchCourseCategoriesByIdAction = createAsyncThunk(
-    `${SLICE_NAMESPACE}/fetch_categories`,
-    async (categoryId: string) => {
-        try {
-            const response = await coursesByCategoryIdRequest(categoryId);
-            return response;
-        } catch (error) {
-            throw error;
-        }
+  `${SLICE_NAMESPACE}/fetch_courses`,
+  async (categoryId: string) => {
+    try {
+      const response = await coursesByCategoryIdRequest(categoryId);
+      return response;
+    } catch (error) {
+      throw error;
     }
-)
-
+  }
+);
 
 const courseCategoriesByIdSlice = createSlice({
-    name: SLICE_NAMESPACE,
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(fetchCourseCategoriesByIdAction.pending, (state) => {
-            state.isLoading = true;
-            state.isError = false;
-        });
-        builder.addCase(fetchCourseCategoriesByIdAction.fulfilled,
-            (state, action: PayloadAction<Category[]>) => {
-                const newCategories = action.payload;
-                state.categories = newCategories;
-                state.isLoading = false;
-                state.isError = false;
-            }
-        );
-        builder.addCase(fetchCourseCategoriesByIdAction.rejected, (state) => {
-            state.isLoading = false;
-            state.isError = true;
-        });
-    }
-})
+  name: SLICE_NAMESPACE,
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchCourseCategoriesByIdAction.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+    });
+    builder.addCase(
+      fetchCourseCategoriesByIdAction.fulfilled,
+      (state, action: PayloadAction<Course[]>) => {
+        const newCourses = action.payload;
+        state.courses = newCourses;
+        state.isLoading = false;
+        state.isError = false;
+      }
+    );
+    builder.addCase(fetchCourseCategoriesByIdAction.rejected, (state) => {
+      state.isLoading = false;
+      state.isError = true;
+    });
+  },
+});
 
 export default courseCategoriesByIdSlice.reducer;
-

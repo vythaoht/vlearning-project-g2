@@ -2,23 +2,22 @@ import React from 'react'
 import styles from './categoryPage.module.scss'
 import ProgramBE from './ProgramBE'
 import { useParams } from 'react-router-dom'
-import WebDesign from './WebDesign'
-import ProgramMobile from './ProgramMobile'
-import ProgramFE from './ProgramFE'
-import ProgramFT from './ProgramFT'
-import ThinkingProgram from './ThinkingProgram'
+
+const mappingTitle = (category: string) => {
+  return "Lập trình " + category;
+}
+
 
 type Props = {}
-
 function CategoryPage({ }: Props) {
   const { maDanhMuc } = useParams();
 
-  const backend = 'BackEnd';
-  const design = 'Design';
-  const mobile = 'DiDong';
-  const frontend = 'FrontEnd';
-  const fullstack = 'FullStack';
-  const thinking = 'TuDuy';
+  // const backend = 'BackEnd';
+  // const design = 'Design';
+  // const mobile = 'DiDong';
+  // const frontend = 'FrontEnd';
+  // const fullstack = 'FullStack';
+  // const thinking = 'TuDuy';
 
   return (
     <section className={styles.category}>
@@ -28,13 +27,14 @@ function CategoryPage({ }: Props) {
       </div>
 
       {/* Sử dụng bậc tam thức (conditional renderings) để chuyển trang */}
-      {maDanhMuc === backend ? <ProgramBE /> :
+      {/* {maDanhMuc === backend ? <ProgramBE /> :
         maDanhMuc === design ? <WebDesign /> :
           maDanhMuc === mobile ? <ProgramMobile /> :
             maDanhMuc === frontend ? <ProgramFE /> :
               maDanhMuc === fullstack ? <ProgramFT /> :
                 maDanhMuc === thinking ? <ThinkingProgram /> :
-                  null}
+                  null} */}
+      <ProgramBE title={mappingTitle(maDanhMuc || '')} />
     </section>
   )
 }

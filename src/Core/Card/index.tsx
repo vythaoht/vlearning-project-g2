@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Course } from '../../Redux/Slices/courseCategoriesSlice'
 import styles from "./card.module.scss"
@@ -19,6 +19,7 @@ function Card({ course, isTag, isShowInfoDetails }: Props) {
         nguoiTao,
         luotXem
     } = course;
+    const [imgSrc, setImgSrc] = useState(img)
     return (
         <div className={styles.cardItem}>
             <Link to={""}>
@@ -31,10 +32,9 @@ function Card({ course, isTag, isShowInfoDetails }: Props) {
                         isShowInfoDetails && <div className={styles.showInfor}><ShowDetails course={course} /></div>
                     }
 
-                    <img src={img} alt={tenKhoaHoc}
-                        onError={(e) => {
-                            e.currentTarget.onerror = null;
-                            e.currentTarget.src = "./image/default.jpeg"
+                    <img src={imgSrc} alt={tenKhoaHoc}
+                        onError={() => {
+                            setImgSrc("/image/default.jpeg")
                         }}
                     />
                     <span className={styles.title}>{tenKhoaHoc}</span>
@@ -45,7 +45,7 @@ function Card({ course, isTag, isShowInfoDetails }: Props) {
                 <hr />
                 <div className={styles.part3}>
                     <div className={cls(styles.author)}>
-                        <img src="./image/human.png" alt="#" width="45" height="45" />
+                        <img src="/image/human.png" alt="#" width="45" height="45" />
                         <span>{nguoiTao.taiKhoan}</span>
                     </div>
                     <div className={styles.viewer}>
