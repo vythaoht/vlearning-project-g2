@@ -46,7 +46,7 @@ function Header({ }: Props) {
           <li className={cls(styles.firstOfList, styles.listItem)}>
             <i className="fa fa-list-ul"></i>
             <p>
-              <Link to="/">DANH MỤC</Link>
+              <Link to="/category">DANH MỤC</Link>
             </p>
             <ul className={styles.listingOfFistOption}>
               {categories.map((item) => {

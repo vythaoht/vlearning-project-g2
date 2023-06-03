@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import { Course } from '../../Redux/Slices/courseCategoriesSlice'
 import styles from "./card.module.scss"
 import cls from "classnames"
+import ShowDetails from '../../Components/ShowDetails'
 
 type Props = {
     course: Course,
     isTag?: boolean,
+    isShowInfoDetails?: boolean,
 }
 
-function Card({ course, isTag }: Props) {
+function Card({ course, isTag, isShowInfoDetails }: Props) {
     const {
         hinhAnh: img,
         tenKhoaHoc,
@@ -23,6 +25,10 @@ function Card({ course, isTag }: Props) {
                 <div className={styles.part1}>
                     {
                         isTag && <span className={styles.status}>Yêu Thích</span>
+                    }
+
+                    {
+                        isShowInfoDetails && <div className={styles.showInfor}><ShowDetails course={course} /></div>
                     }
 
                     <img src={img} alt={tenKhoaHoc}

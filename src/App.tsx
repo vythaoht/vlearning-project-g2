@@ -8,6 +8,7 @@ import Loading from "./Pages/LoadingPage";
 import SearchingCoursePage from "./Pages/SearchingCoursePage";
 import HomeTemplate from "./Templates/HomeTemplate";
 import CoursePage from "./Pages/CoursePage";
+import CategoryPage from "./Pages/CategoryPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/information" element={<InformationPage />} />
           <Route path="/loading" element={<Loading />} />
           <Route path="/searching" element={<SearchingCoursePage />} />
+          <Route path="/category/:maDanhMuc" element={<CategoryPage />} />
         </Route>
 
 
