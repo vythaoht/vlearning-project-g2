@@ -16,9 +16,6 @@ function ShowDetails({ course }: Props) {
         moTa
     } = course;
 
-    console.log(maKhoaHoc);
-    
-
     return (
         <div className={styles.ShowDetails}>
             <div className={styles.card__header}>
@@ -28,13 +25,15 @@ function ShowDetails({ course }: Props) {
             <h6>{tenKhoaHoc}</h6>
 
             <div className={styles.cardContent}>
-               <article>{moTa}</article>
+                <article>{moTa}</article>
             </div>
 
             <div className={styles.card__footer}>
                 <button
                     className={styles.ShowDetails__button}
-                    onClick={() => navigate(`/details/${maKhoaHoc}`)}
+                    onClick={() => {
+                        navigate(`/details/${maKhoaHoc}`)
+                    }}
                 >
                     Xem chi tiết
                 </button>

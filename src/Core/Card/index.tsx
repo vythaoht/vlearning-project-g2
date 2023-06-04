@@ -17,12 +17,13 @@ function Card({ course, isTag, isShowInfoDetails }: Props) {
         tenKhoaHoc,
         moTa,
         nguoiTao,
-        luotXem
+        luotXem,
+        maKhoaHoc,
     } = course;
     const [imgSrc, setImgSrc] = useState(img)
     return (
         <div className={styles.cardItem}>
-            <Link to={""}>
+            <Link to={`/details/${maKhoaHoc}`}>
                 <div className={styles.part1}>
                     {
                         isTag && <span className={styles.status}>Yêu Thích</span>
