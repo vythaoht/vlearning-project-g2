@@ -40,7 +40,7 @@ function ProgramBE({ title }: Props) {
           {courses?.map((course) => {
             return (
               <div key={course.maKhoaHoc} className="col-6 col-4 col-3 colter">
-                <Card course={course} />
+                <Card course={course} isTag isShowInfoDetails />
               </div>
             );
           })}

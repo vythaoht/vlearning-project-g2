@@ -12,18 +12,33 @@ function ShowDetails({ course }: Props) {
     const navigate = useNavigate();
     const {
         maKhoaHoc,
+        tenKhoaHoc,
+        moTa
     } = course;
+
+    console.log(maKhoaHoc);
+    
 
     return (
         <div className={styles.ShowDetails}>
             <div className={styles.card__header}>
-                <img src='./image/avatar-showDetails.png' alt='avatarDetails' />
-                <span className={cls('ml-1', styles.cardTitle)}>Elun Musk Ricard</span>
+                <img src='/image/avatar-showDetails.png' alt='avatarDetails' />
+                <span className={cls('ml-1', styles.card__title)}>Elun Musk Ricard</span>
             </div>
-            <h6>BOOTCAMP - LẬP TRÌNH FULL STACK TỪ ZERO ĐẾN CÓ VIỆC</h6>
+            <h6>{tenKhoaHoc}</h6>
 
-            <p className={styles.cardContent}>Đã có hơn 6200 bạn đăng kí học và có việc làm thông qua chương trình đào tạo Bootcamp Lập trình Front End chuyên nghiệp. Khóa học 100% thực hành cường độ cao theo dự án thực tế và kết nối doanh nghiệp hỗ trợ tìm việc ngay sau khi học...</p>
-            <button className="btnGlobal btnSubCard" onClick={() => navigate(`/details/${course.maKhoaHoc}`)}>Xem chi tiết</button>
+            <div className={styles.cardContent}>
+               <article>{moTa}</article>
+            </div>
+
+            <div className={styles.card__footer}>
+                <button
+                    className={styles.ShowDetails__button}
+                    onClick={() => navigate(`/details/${maKhoaHoc}`)}
+                >
+                    Xem chi tiết
+                </button>
+            </div>
         </div>
 
     )

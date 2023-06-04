@@ -23,6 +23,10 @@ function Header({ }: Props) {
     navigate(`/searching?query=${inputSearchRef.current}`);
   };
 
+  const handleSignin = () => {
+    navigate('/login');
+  }
+
   const { categories } = useSelector((state: RootState) => {
     return state.courseCategoriesReducer;
   });
@@ -46,7 +50,7 @@ function Header({ }: Props) {
           <li className={cls(styles.firstOfList, styles.listItem)}>
             <i className="fa fa-list-ul"></i>
             <p>
-              <Link to="/category">DANH MỤC</Link>
+              <Link to="/">DANH MỤC</Link>
             </p>
             <ul className={styles.listingOfFistOption}>
               {categories.map((item) => {
@@ -74,7 +78,7 @@ function Header({ }: Props) {
       </div>
 
       <div className={styles.right}>
-        <Button title="Đăng Nhập" />
+        <Button title="Đăng Nhập" onClick={handleSignin} />
       </div>
     </div>
   );

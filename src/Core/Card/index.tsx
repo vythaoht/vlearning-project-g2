@@ -32,7 +32,7 @@ function Card({ course, isTag, isShowInfoDetails }: Props) {
                         isShowInfoDetails && <div className={styles.showInfor}><ShowDetails course={course} /></div>
                     }
 
-                    <img src={imgSrc} alt={tenKhoaHoc}
+                    <img className={styles.part1__img} src={imgSrc} alt={tenKhoaHoc}
                         onError={() => {
                             setImgSrc("/image/default.jpeg")
                         }}

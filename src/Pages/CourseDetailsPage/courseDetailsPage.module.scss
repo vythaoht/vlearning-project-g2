@@ -13,4 +13,281 @@
             font-size: 35px;
         }
     }
+
+    &__content {
+        padding: 50px;
+
+        .courserDetails__right {
+            width: 60%;
+
+            h4 {
+                font-size: 20px;
+            }
+
+            .contentRight__header {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .contentRight__info {
+                    padding: 10px 0 10px 0;
+
+                    img {
+                        border-radius: 50%;
+                        object-fit: cover;
+                        width: 50px;
+                        height: 50px;
+                        vertical-align: middle;
+                    }
+
+                    i {
+                        font-size: 35px;
+                        color: #41b294;
+                    }
+
+                    .contentRight__review {
+
+                        span {
+                            font-weight: 600;
+                        }
+
+                        i {
+                            font-size: 20px;
+                            color: #ffd60a;
+                        }
+
+                        & p:first-of-type {
+                            font-size: 14px;
+                            color: #8c8c8c;
+                            left: -100px;
+                        }
+                    }
+                }
+
+                .contentRight__intro {
+                    display: inline-block;
+                    padding: 0 5px;
+
+                    & p:first-of-type {
+                        font-size: 14px;
+                        color: #8c8c8c;
+                    }
+
+                    & p:last-of-type {
+                        font-size: 17px;
+                    }
+                }
+            }
+
+            .contentRight__des {
+                color: #8c8c8c;
+                border-bottom: 1px solid #d0d0d0;
+                padding: 20px 0 20px 0;
+                text-align: justify;
+                font-size: 18px;
+            }
+
+            .contentRight__courseLearn {
+                padding: 20px 0;
+
+                .contentRight__padding {
+                    padding-right: 15px;
+                }
+
+                h6 {
+                    font-size: 20px;
+                    padding: 10px 0;
+                }
+
+                li {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+                & li i {
+                    margin-right: 5px;
+                    color: #ffd60a;
+                }
+            }
+
+            .contentRight__course {
+
+                h6 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    padding-bottom: 20px;
+                }
+
+                .courseDetails__item {
+
+                    .courseDetails__content {
+                        padding: 20px 0;
+
+                        p {
+                            font-size: 17px;
+                            padding: 0 10px;
+                        }
+
+                        .courseContent__header {
+                            display: flex;
+                            background-color: hsla(0, 0%, 86.3%, 0.1411764705882353);
+                            margin-bottom: 20px;
+                            padding: 10px;
+                            align-items: center;
+
+                            span {
+                                font-size: 24px;
+                                font-weight: 400;
+                                margin-right: 20px;
+                            }
+
+                            button {
+                                background-color: transparent;
+                                border: 1px solid #41b294;
+                                font-weight: 600;
+                                color: #41b294;
+                                transition: all .5s;
+                                padding: 5px;
+                                cursor: pointer;
+                                font-size: 16px;
+
+                                &:hover {
+                                    color: #fff;
+                                    background-color: #41b294;
+                                    transform: scale(.97);
+                                }
+                            }
+                        }
+
+                        .courseContent__lesson {
+                            padding: 10px;
+
+                            .courseContent__lessonContent {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                box-shadow: 1px 1px 2px 1px rgba(239, 244, 190, .27);
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+
+                                span {
+                                    color: #8c8c8c;
+
+                                    i {
+                                        color: #41b294;
+                                        margin-right: 10px;
+                                    }
+                                }
+
+                                & span:nth-of-type(2) {
+                                    display: flex;
+                                    align-items: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .courseExploreMore {
+                padding: 20px 0 20px 0;
+
+                h6 {
+                    font-size: 17px;
+                }
+            }
+        }
+
+        .courserDetails__left {
+            width: 40%;
+            padding-left: 30px;
+            height: 100px;
+
+            .content__left {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 15px;
+                padding: 10px 30px;
+                box-shadow: 1px 1px 10px 4px #dadada;
+
+                .content__leftBox {
+
+                    button {
+                        background-color: transparent;
+                        border: 1px solid #41b294;
+                        font-size: 600;
+                        color: #41b294;
+                        transition: all .5s;
+                        padding: 10px 130px;
+                        text-transform: uppercase;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: #fff;
+                            background-color: #41b294;
+                            transform: scale(.97);
+                        }
+                    }
+
+                    .content__price {
+                        text-align: right;
+                        padding: 20px 0;
+
+                        p {
+                            font-size: 30px;
+                            font-weight: 500;
+
+                            i {
+                                margin-right: 10px;
+                                color: #f6ba35;
+                            }
+                        }
+                    }
+
+                    .content__leftInfo {
+
+                        ul {
+
+                            li {
+                                display: flex;
+                                align-items: center;
+                                padding: 20px 0;
+                                justify-content: space-between;
+                                border-bottom: 1px solid #f2f1f1;
+
+                                p {
+                                    color: #8c8c8c;
+                                    font-size: 16px;
+
+                                    span {
+                                        color: #252525;
+                                        font-weight: 600;
+                                    }
+                                }
+
+                                i {
+                                    font-size: 20px;
+                                    color: #f6ba35;
+                                }
+                            }
+                        }
+
+                        form {
+                            padding: 20px 0;
+
+                            input {
+                                width: 100%;
+                                outline: none;
+                                padding: 10px 10px;
+                                border: 1px solid #d0d0d0;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
 }
