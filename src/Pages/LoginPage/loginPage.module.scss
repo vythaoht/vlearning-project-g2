@@ -63,7 +63,6 @@
             .form__content {
                 position: absolute;
                 top: 0;
-                // left: 0;
                 height: 100%;
                 transition: all .5s ease-in-out;
 
@@ -84,8 +83,26 @@
                     border: none;
                 }
 
+                select {
+                    background: #eee;
+                    width: 100%;
+                    padding: 10px 15px;
+                    margin: 5px 0;
+                    border: none;
+                }
+
                 .login__box {
                     height: 100%;
+
+                    .form__check {
+                        display: flex;
+                        flex-direction: column;
+
+                        input {
+                            display: inline-block;
+                        }
+
+                    }
                 }
             }
 
@@ -101,8 +118,6 @@
                 z-index: 1;
                 opacity: 0;
             }
-
-
 
             .overlay__container {
                 position: absolute;
@@ -151,9 +166,9 @@
                 }
             }
 
-            &.right-panel-active .overlay {
-                transform: translateX(50%);
-            }
+            // &.right-panel-active .overlay {
+            //     transform: translateX(50%);
+            // }
         }
     }
 }

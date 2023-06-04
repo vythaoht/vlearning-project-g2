@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginUser } from "../Services/loginAPI";
-import { error } from "console";
+import { registerUser } from "../Services/registerAPI";
 
 type User = {
     taiKhoan: string;
@@ -21,6 +21,7 @@ const initialState: InitialStateTypes = {
 
 const SLICE_NAMESPACE = "user";
 
+// Đăng nhập
 export const fetchLoginAction = createAsyncThunk(`${SLICE_NAMESPACE}/login`, async (values: string) => {
     try {
         const response = await loginUser(values);
@@ -33,16 +34,16 @@ export const fetchLoginAction = createAsyncThunk(`${SLICE_NAMESPACE}/login`, asy
     }
 });
 
-
-const useSlice = createSlice({
+const userSlice = createSlice({
     name: SLICE_NAMESPACE,
     initialState,
     reducers: {
-        login: (state, action) => {
+        logout: (state, action) => {
             state.user = [];
         }
     },
     extraReducers: (builder) => {
+        // Đăng nhập
         builder.addCase(fetchLoginAction.pending, (state) => {
             state.isLoading = true;
         });
@@ -53,6 +54,9 @@ const useSlice = createSlice({
         builder.addCase(fetchLoginAction.rejected, (state) => {
             state.isLoading = false;
             state.isError = true;
-        })
+        });
     }
-})
+});
+
+export default userSlice.reducer;
+export const { logout } = userSlice.actions;
