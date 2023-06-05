@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './courseDetailsPage.module.scss'
 import cls from 'classnames'
 import Card from '../../Core/Card'
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { DispatchType, RootState } from '../../Redux/store'
+import { fetchCourseInfoAction } from '../../Redux/Slices/courseInfoSlice'
 
 type Props = {}
 
 function CourseDetailsPage({ }: Props) {
+    const { maKhoaHoc } = useParams();
+
+    // const { courseInfo } = useSelector(
+    //     (state: RootState) => state.courseInfoReducer
+    // );
+
+    // // console.log(courseInfo);
+
+    // const dispatch: DispatchType = useDispatch();
+
+    // useEffect(() => {
+    //     if (maKhoaHoc) {
+    //         dispatch(fetchCourseInfoAction(maKhoaHoc));
+    //     }
+    // }, [maKhoaHoc]);
+
     return (
         <section className={styles.courserDetails}>
             <div className={styles.courserDetails__title}>
@@ -35,7 +55,16 @@ function CourseDetailsPage({ }: Props) {
 
                                     <div className={styles.contentRight__intro}>
                                         <p>Lĩnh vực</p>
-                                        <p>Lập trình di động</p>
+
+                                        {/* {courseInfo?.map((item) => {
+                                            // console.log(courseInfo);
+
+                                            return (
+                                                <div key={item.maDanhMuc}>
+                                                    <p>{item.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
+                                                </div>
+                                            )
+                                        })} */}
                                     </div>
                                 </div>
                             </div>
@@ -306,8 +335,13 @@ function CourseDetailsPage({ }: Props) {
                     <div className={cls('row', styles.courserDetails__left)}>
                         <div className={styles.content__left}>
                             <div className={styles.content__leftBox}>
-                                <img src="https://elearningnew.cybersoft.edu.vn/hinhanh/kotlin-tren-android_gp01.jpg" />
-
+                                {/* {courseInfo?.map((item) => {
+                                    return (
+                                        <div key={item.maKhoaHoc}>
+                                            <img src={item.hinhAnh} alt={item.maKhoaHoc} />
+                                        </div>
+                                    )
+                                })} */}
                                 <div className={styles.content__price}>
                                     <p>
                                         <i className="fas fa-bolt" />
@@ -362,7 +396,7 @@ function CourseDetailsPage({ }: Props) {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 
