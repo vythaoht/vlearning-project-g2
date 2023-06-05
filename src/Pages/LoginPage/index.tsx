@@ -1,6 +1,13 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './loginPage.module.scss'
+import { useForm } from 'react-hook-form';
+import RegisterComponent from './RegisterComponent';
+import { useDispatch, useSelector } from 'react-redux';
+import { DispatchType, RootState } from '../../Redux/store';
+import { loginUser } from '../../Redux/Services/loginAPI';
+import { fetchLoginAction } from '../../Redux/Slices/userSlice';
+import { Navigate, useSearchParams } from 'react-router-dom';
 
 type Props = {}
 
@@ -17,6 +24,37 @@ function LoginPage({ }: Props) {
     //     container.classList.remove("right-panel-active");
     // });
 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        defaultValues: {
+            taiKhoan: "",
+            matKhau: "",
+        },
+    });
+
+    const dispatch: DispatchType = useDispatch();
+    const { user } = useSelector((state: RootState) => {
+        return state.userReducer;
+    });
+
+    const [searchParams, _] = useSearchParams();
+
+
+    const onSubmit = (values: string) => {
+        dispatch(fetchLoginAction(values));
+    };
+
+    // if (user) {
+    //     if (searchParams.get(`fallbackUrl`)) {
+    //         return <Navigate to={searchParams.get(`fallbackUrl`) || ""} />;
+    //     }
+    //     return <Navigate to="/" />;
+    // }
+
+
 
     return (
         <div className={styles.login}>
@@ -24,11 +62,45 @@ function LoginPage({ }: Props) {
                 {/* Giao diện đăng nhập */}
                 <div className={styles.container} id='container'>
                     <div className={`${styles.form__content} ${styles.login__content}`}>
-                        <form className={styles.login__box}>
+                        <form
+                            // onSubmit={handleSubmit(onSubmit)} 
+                            className={styles.login__box}
+                        >
                             <h2>ĐĂNG NHẬP</h2>
                             <span>hoặc sử dụng tài khoản đã đăng ký của bạn</span>
-                            <input type="text" placeholder="Tài khoản" name="taiKhoan" />
-                            <input type="password" placeholder="Mật khẩu" name="matKhau" />
+
+                            <input
+                                type="text"
+                                placeholder="Tài Khoản *"
+                                {...register("taiKhoan", {
+                                    required: {
+                                        value: true,
+                                        message: "Tài khoản không được để trống",
+                                    },
+                                    pattern: {
+                                        value: /^\S+$/,
+                                        message: "Tài khoản không được chứa khoảng trắng",
+                                    },
+                                })}
+                            />
+                            {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
+
+                            <input
+                                type={"password"}
+                                placeholder="Mật Khẩu *"
+                                {...register("matKhau", {
+                                    required: {
+                                        value: true,
+                                        message: "Mật khẩu không được để trống",
+                                    },
+                                    pattern: {
+                                        value: /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/,
+                                        message: "Mật khẩu phải chứa ít nhất 1 chữ cái và 1 chữ số",
+                                    },
+                                })}
+                            />
+                            {errors.matKhau && <p>{errors.matKhau.message}</p>}
+
                             <a href="#">Quên mật khẩu?</a>
                             <button type="submit">Đăng nhập</button>
                         </form>
@@ -36,32 +108,7 @@ function LoginPage({ }: Props) {
 
                     {/* Giao diện đăng ký */}
                     <div className={`${styles.form__content} ${styles.register__content}`}>
-                        <form className={styles.register__box}>
-                            <h2 className="pt-3">ĐĂNG KÝ</h2>
-                            <input type="text" placeholder="Tài khoản" name="taiKhoan" />
-                            <div className="message" > </div>
-                            <input type="text" placeholder="Họ tên" name="hoTen" />
-                            <div className="message" ></div>
-                            <input type="password" placeholder="Mật khẩu" name="matKhau" />
-                            <div className="message" ></div>
-                            <input type="email" placeholder="Email" name="email" />
-                            <div className="message" ></div>
-                            <input type="phone" placeholder="Số điện thoại" name="soDT" />
-                            <div className="message" ></div>
-                            <select className="maNhom">
-                                <option value="GP01">GP01</option>
-                                <option value="GP02">GP02</option>
-                                <option value="GP03">GP03</option>
-                                <option value="GP04">GP04</option>
-                                <option value="GP05">GP05</option>
-                                <option value="GP06">GP06</option>
-                                <option value="GP07">GP07</option>
-                                <option value="GP08">GP08</option>
-                                <option value="GP09">GP09</option>
-                                <option value="GP010">GP010</option>
-                            </select>
-                            <button type="submit">Đăng ký</button>
-                        </form>
+                        <RegisterComponent />
                     </div>
 
                     {/* Giao diện Xin chào */}
@@ -79,7 +126,6 @@ function LoginPage({ }: Props) {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

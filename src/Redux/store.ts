@@ -1,12 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import courseCategoriesReducer from "./Slices/courseCategoriesSlice";
+import courseCategoriesByIdReducer from "./Slices/courseCategoriesByIdSlice";
 import searchReducer from "./Slices/searchSlice";
+import userReducer from "./Slices/userSlice";
 
 //1: ban đầu sẽ import "courseCategoriesSlice" đúng như bên slice của nó, nhưng vì export default nên mình đổi được tên và vì export chấm .reducer nên mình đặt là "courseCategoriesReducer" cho dễ hiểu
 
 const store = configureStore({
   reducer: {
     courseCategoriesReducer,
+    courseCategoriesByIdReducer,
+    userReducer,
     searchReducer,
   },
 });

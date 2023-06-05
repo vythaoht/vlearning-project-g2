@@ -1,0 +1,64 @@
+.ShowDetails {
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    transition: all .5s;
+    width: 250px;
+    word-wrap: break-word;
+    padding: 15px;
+    border-radius: 5px;
+
+    h6 {
+        font-size: 15px;
+        padding: 10px 0 10px 0;
+    }
+
+    .card__header {
+        display: inline-block;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+
+        .card__title {
+            color: gray;
+        }
+
+    }
+
+    .cardContent {
+        color: gray;
+        font-size: 14px;
+
+        article {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+    .card__footer {
+        padding-top: 10px;
+
+        button {
+            background-color: #41b294;
+            color: #fff;
+            padding: 10px 70px;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(.97);
+            }
+
+        }
+    }
+
+
+}

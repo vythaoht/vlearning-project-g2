@@ -101,7 +101,7 @@ function Footer({ }: Props) {
             <form action="" className={styles.styleForm}>
               <input type="text" placeholder='Họ và tên' />
               <input type="email" placeholder='Email' />
-              <input type="text" />
+              <input type="text" placeholder='Số điện thoại' />
             </form>
             <Button title='ĐĂNG KÝ' />
           </div>

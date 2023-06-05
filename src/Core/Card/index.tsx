@@ -1,34 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Course } from '../../Redux/Slices/courseCategoriesSlice'
 import styles from "./card.module.scss"
 import cls from "classnames"
+import ShowDetails from '../../Components/ShowDetails'
 
 type Props = {
     course: Course,
     isTag?: boolean,
+    isShowInfoDetails?: boolean,
 }
 
-function Card({ course, isTag }: Props) {
+function Card({ course, isTag, isShowInfoDetails }: Props) {
     const {
         hinhAnh: img,
         tenKhoaHoc,
         moTa,
         nguoiTao,
-        luotXem
+        luotXem,
+        maKhoaHoc,
     } = course;
+    const [imgSrc, setImgSrc] = useState(img)
     return (
         <div className={styles.cardItem}>
-            <Link to={""}>
+            <Link to={`/details/${maKhoaHoc}`}>
                 <div className={styles.part1}>
                     {
                         isTag && <span className={styles.status}>Yêu Thích</span>
                     }
 
-                    <img src={img} alt={tenKhoaHoc}
-                        onError={(e) => {
-                            e.currentTarget.onerror = null;
-                            e.currentTarget.src = "./image/default.jpeg"
+                    {
+                        isShowInfoDetails && <div className={styles.showInfor}><ShowDetails course={course} /></div>
+                    }
+
+                    <img className={styles.part1__img} src={imgSrc} alt={tenKhoaHoc}
+                        onError={() => {
+                            setImgSrc("/image/default.jpeg")
                         }}
                     />
                     <span className={styles.title}>{tenKhoaHoc}</span>
@@ -39,7 +46,7 @@ function Card({ course, isTag }: Props) {
                 <hr />
                 <div className={styles.part3}>
                     <div className={cls(styles.author)}>
-                        <img src="./image/human.png" alt="#" width="45" height="45" />
+                        <img src="/image/human.png" alt="#" width="45" height="45" />
                         <span>{nguoiTao.taiKhoan}</span>
                     </div>
                     <div className={styles.viewer}>

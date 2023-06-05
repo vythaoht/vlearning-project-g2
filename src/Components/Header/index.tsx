@@ -23,6 +23,10 @@ function Header({ }: Props) {
     navigate(`/searching?query=${inputSearchRef.current}`);
   };
 
+  const handleSignin = () => {
+    navigate('/login');
+  }
+
   const { categories } = useSelector((state: RootState) => {
     return state.courseCategoriesReducer;
   });
@@ -74,7 +78,7 @@ function Header({ }: Props) {
       </div>
 
       <div className={styles.right}>
-        <Button title="Đăng Nhập" />
+        <Button title="Đăng Nhập" onClick={handleSignin} />
       </div>
     </div>
   );
