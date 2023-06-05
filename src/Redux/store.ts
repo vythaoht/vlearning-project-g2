@@ -3,6 +3,8 @@ import courseCategoriesReducer from "./Slices/courseCategoriesSlice";
 import courseCategoriesByIdReducer from "./Slices/courseCategoriesByIdSlice";
 import searchReducer from "./Slices/searchSlice";
 import userReducer from "./Slices/userSlice";
+import courseInfoReducer from "./Slices/courseInfoSlice";
+import courseListReducer from "./Slices/courseListSlice";
 
 //1: ban đầu sẽ import "courseCategoriesSlice" đúng như bên slice của nó, nhưng vì export default nên mình đổi được tên và vì export chấm .reducer nên mình đặt là "courseCategoriesReducer" cho dễ hiểu
 
@@ -12,6 +14,8 @@ const store = configureStore({
     courseCategoriesByIdReducer,
     userReducer,
     searchReducer,
+    courseInfoReducer,
+    courseListReducer,
   },
 });
 

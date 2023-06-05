@@ -33,3 +33,27 @@ export const listCourseBySearching = async (courseName: string) => {
     throw error;
   }
 };
+
+// call API lấy thông tin khóa học
+export const getCourseInfoAPI = async (courseId: string) => {
+  try {
+    const response = await axiosClient.get(
+      `/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${courseId}`
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// call API lấy danh sách khóa học
+export const getCourseListAPI = async () => {
+  try {
+    const response = await axiosClient.get(
+      `/QuanLyKhoaHoc/LayDanhSachKhoaHoc`
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

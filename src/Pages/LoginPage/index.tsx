@@ -44,7 +44,7 @@ function LoginPage({ }: Props) {
 
 
     const onSubmit = (values: string) => {
-        dispatch(fetchLoginAction(values));
+        // dispatch(fetchLoginAction({ ...values }));
     };
 
     // if (user) {
@@ -63,7 +63,7 @@ function LoginPage({ }: Props) {
                 <div className={styles.container} id='container'>
                     <div className={`${styles.form__content} ${styles.login__content}`}>
                         <form
-                            // onSubmit={handleSubmit(onSubmit)} 
+                            // onSubmit={handleSubmit(onSubmit)}
                             className={styles.login__box}
                         >
                             <h2>ĐĂNG NHẬP</h2>
@@ -86,7 +86,7 @@ function LoginPage({ }: Props) {
                             {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
 
                             <input
-                                type={"password"}
+                                type={"text"}
                                 placeholder="Mật Khẩu *"
                                 {...register("matKhau", {
                                     required: {
