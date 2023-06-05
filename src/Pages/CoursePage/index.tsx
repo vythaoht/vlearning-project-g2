@@ -1,12 +1,12 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './coursePage.module.scss'
 import cls from 'classnames'
 import Card from '../../Core/Card'
 import { useDispatch, useSelector } from 'react-redux'
 import { DispatchType, RootState } from '../../Redux/store'
 import { fetchCourseListAction } from '../../Redux/Slices/courseListSlice'
-import Slider from 'react-slick'
+import Pagination from '../../Core/Pagination/Pagination'
 
 type Props = {}
 
@@ -20,10 +20,13 @@ function CoursePage({ }: Props) {
         (state: RootState) => state.courseListReducer
     );
 
-    const settings = {
+    // xử lý phân trang
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(8);
 
-    }
-
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentPost = courseList.slice(firstPostIndex, lastPostIndex);
 
     return (
         <section className={styles.course}>
@@ -77,7 +80,6 @@ function CoursePage({ }: Props) {
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div className={styles.course__boxList}>
@@ -88,17 +90,22 @@ function CoursePage({ }: Props) {
 
                 <div className={styles.course__itemList}>
                     <div className={cls("row gutter")}>
-                        {/* <Slider {...settings}> */}
-                            {courseList?.map((course) => {
-                                return (
-                                    <div key={course.maKhoaHoc} className="col-6 col-4 col-3 colter">
-                                        <Card course={course} />
-                                    </div>
-                                );
-                            })}
-                        {/* </Slider> */}
+                        {currentPost?.map((course) => {
+                            return (
+                                <div key={course.maKhoaHoc} className="col-6 col-3 col-4 colter">
+                                    <Card course={course} />
+                                </div>
+                            );
+                        })}
                     </div>
+                    <Pagination
+                        totalPosts={courseList.length}
+                        postsPerPage={postsPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                    />
                 </div>
+
             </div>
         </section >
     )
