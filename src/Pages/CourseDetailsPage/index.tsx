@@ -12,19 +12,19 @@ type Props = {}
 function CourseDetailsPage({ }: Props) {
     const { maKhoaHoc } = useParams();
 
-    // const { courseInfo } = useSelector(
-    //     (state: RootState) => state.courseInfoReducer
-    // );
+    const { courseInfo } = useSelector(
+        (state: RootState) => state.courseInfoReducer
+    );
 
-    // // console.log(courseInfo);
+    // console.log(courseInfo);
 
-    // const dispatch: DispatchType = useDispatch();
+    const dispatch: DispatchType = useDispatch();
 
-    // useEffect(() => {
-    //     if (maKhoaHoc) {
-    //         dispatch(fetchCourseInfoAction(maKhoaHoc));
-    //     }
-    // }, [maKhoaHoc]);
+    useEffect(() => {
+        if (maKhoaHoc) {
+            dispatch(fetchCourseInfoAction(maKhoaHoc));
+        }
+    }, [maKhoaHoc]);
 
     return (
         <section className={styles.courserDetails}>
@@ -56,15 +56,15 @@ function CourseDetailsPage({ }: Props) {
                                     <div className={styles.contentRight__intro}>
                                         <p>Lĩnh vực</p>
 
-                                        {/* {courseInfo?.map((item) => {
+                                        {courseInfo?.map((item) => {
                                             // console.log(courseInfo);
 
                                             return (
-                                                <div key={item.maDanhMuc}>
+                                                <div key={item.maKhoaHoc}>
                                                     <p>{item.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
                                                 </div>
                                             )
-                                        })} */}
+                                        })}
                                     </div>
                                 </div>
                             </div>

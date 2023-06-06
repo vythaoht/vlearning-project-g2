@@ -31,7 +31,7 @@ export type CourseInfo = {
 };
 
 type InitialStateTypes = {
-    courseInfo: CourseInfoList[];
+    courseInfo: CourseInfo[];
     isLoading: boolean;
     isError: boolean;
 };
@@ -53,7 +53,7 @@ export const fetchCourseInfoAction = createAsyncThunk(
 
             // let newData: CourseInfoList[] = data.slice(0);
             // const temp = newData.map(async (item) => {
-            //   const res = await getCourseInfoAPI(categoryId);
+            //   const res = await getCourseInfoAPI(item.maKhoaHoc);
             //   return {
             //     ...item,
             //     thongTinKhoaHoc: res,
@@ -69,9 +69,9 @@ export const fetchCourseInfoAction = createAsyncThunk(
 
             const response = await getCourseInfoAPI(courseId);
 
-            let newData: CourseInfoList[] = response.entries();
+            console.log(response);
+            return response;
 
-            return { ...response, thongTinKhoaHoc: newData };
         } catch (error) {
             throw error;
         }
@@ -89,11 +89,11 @@ const courseInfoSlice = createSlice({
         });
         builder.addCase(
             fetchCourseInfoAction.fulfilled,
-            (state, action: PayloadAction<CourseInfoList[]>) => {
-                const newCourseInfo = action.payload;
-                state.courseInfo = newCourseInfo;
+            (state, action: PayloadAction<CourseInfo[]>) => {
+                // const newCourseInfo = action.payload;
+                state.courseInfo = action.payload;
 
-                console.log(newCourseInfo);
+                // console.log(newCourseInfo);
 
 
                 state.isLoading = false;
