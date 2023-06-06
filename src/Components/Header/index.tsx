@@ -93,7 +93,7 @@ function Header({ }: Props) {
         {user ? (
           <div className={styles.info}>
             <p>{user.hoTen}</p>
-            <img src="./image/pic7.jpg" alt="" />
+            <img src="/image/pic7.jpg" alt="" />
             <i className="fa fa-power-off" onClick={handleToLogOut}></i>
           </div>
         ) : (
