@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { DispatchType, RootState } from '../../Redux/store'
 import { fetchCourseInfoAction } from '../../Redux/Slices/courseInfoSlice'
+import { fetchCourseCategoriesByIdAction } from '../../Redux/Slices/courseCategoriesByIdSlice'
 
 type Props = {}
 
@@ -23,6 +24,18 @@ function CourseDetailsPage({ }: Props) {
             dispatch(fetchCourseInfoAction(maKhoaHoc));
         }
     }, [maKhoaHoc]);
+
+    const { courses } = useSelector(
+        (state: RootState) => state.courseCategoriesByIdReducer
+    );
+
+    const cateroryId = courseInfo?.danhMucKhoaHoc.maDanhMucKhoahoc;
+
+    useEffect(() => {
+        if (cateroryId) {
+            dispatch(fetchCourseCategoriesByIdAction(cateroryId));
+        }
+    }, []);
 
     return (
         <section className={styles.courserDetails}>
@@ -53,16 +66,6 @@ function CourseDetailsPage({ }: Props) {
 
                                     <div className={styles.contentRight__intro}>
                                         <p>Lĩnh vực</p>
-
-                                        {/* {courseInfo?.map((item) => {
-                                            // console.log(courseInfo);
-
-                                            return (
-                                                <div key={item.maKhoaHoc}>
-                                                    <p>{item.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
-                                                </div>
-                                            )
-                                        })} */}
                                         <p>{courseInfo?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
                                     </div>
                                 </div>
@@ -321,26 +324,12 @@ function CourseDetailsPage({ }: Props) {
                                 </div>
                             </div>
                         </div>
-
-                        <div className={styles.courseExploreMore}>
-                            <h6><a href="">Khóa học tham khảo</a></h6>
-
-                            <div className='row'>
-                                {/* <Card /> */}
-                            </div>
-                        </div>
                     </div>
 
                     <div className={cls('row', styles.courserDetails__left)}>
                         <div className={styles.content__left}>
                             <div className={styles.content__leftBox}>
-                                {/* {courseInfo?.map((item) => {
-                                    return (
-                                        <div key={item.maKhoaHoc}>
-                                            <img src={item.hinhAnh} alt={item.maKhoaHoc} />
-                                        </div>
-                                    )
-                                })} */}
+                                <img src={courseInfo?.hinhAnh} alt={courseInfo?.maKhoaHoc} />
                                 <div className={styles.content__price}>
                                     <p>
                                         <i className="fas fa-bolt" />
@@ -392,6 +381,22 @@ function CourseDetailsPage({ }: Props) {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className={styles.courseExploreMore}>
+                <h6><a href="">Khóa học tham khảo</a></h6>
+
+                <div className={styles.courserDetails__item}>
+                    <div className={cls("row gutter")}>
+                        {courses?.slice(0, 4).map((course) => {
+                            return (
+                                <div key={course.maKhoaHoc} className="col-6 col-4 col-3 colter">
+                                    <Card course={course} isTag isShowInfoDetails />
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
