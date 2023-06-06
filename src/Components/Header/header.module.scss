@@ -140,6 +140,30 @@
   }
 
   .right {
+    .info {
+      display: flex;
+      align-items: center;
+      p {
+        margin-right: 10px;
+        color: #f6ba35;
+      }
+      img {
+        object-fit: cover;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+      }
+      i {
+        color: #f6ba35;
+        font-size: 20px;
+        margin-left: 10px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+    }
     @media screen and (max-width: 992px) {
       margin: 24px;
     }

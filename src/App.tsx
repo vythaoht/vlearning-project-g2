@@ -11,6 +11,7 @@ import CoursePage from "./Pages/CoursePage";
 import CategoryPage from "./Pages/CategoryPage";
 import LoginPage from "./Pages/LoginPage";
 import CourseDetailsPage from "./Pages/CourseDetailsPage";
+import RegisterPage from "./Pages/RegisterPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/details/:maKhoaHoc" element={<CourseDetailsPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
 
       </Routes>

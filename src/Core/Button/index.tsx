@@ -3,6 +3,7 @@ import styles from "./button.module.scss";
 
 type Props = {
     onClick?: () => void;
+    loading?: boolean;
     title: string | ReactNode;
     color?: string;
     bgColor?: string;
@@ -13,6 +14,7 @@ type Props = {
 function Button({
     title,
     onClick,
+    loading,
     color = "#fff",
     bgColor = "#f6ba35",
     borderColor = "transparent",
@@ -28,6 +30,7 @@ function Button({
             }}
             className={styles.buttonStyle}
             onClick={onClick}
+            disabled={loading}
         >
             {title}
         </button>

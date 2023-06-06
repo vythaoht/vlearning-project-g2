@@ -22,13 +22,21 @@
     color: red;
   }
 
+  .loginBtn {
+    background-color: #36867b;
+    border-color: #fff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
   .login__formAll {
     margin: auto;
     padding: 0 15px 0 15px;
 
     .container {
       width: 80vw;
-      height: 83vh;
+      // overflow-y: scroll;
       min-width: 100%;
       min-height: 100%;
       padding: 24px;
@@ -36,10 +44,9 @@
       border-radius: 10px;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
       position: relative;
-      overflow: hidden;
 
       .form__content {
-        position: absolute;
+        // position: absolute;
         top: 0;
         height: 100%;
         transition: all 0.5s ease-in-out;
@@ -70,15 +77,6 @@
         .login__box {
           height: 100%;
 
-          .title {
-            margin-bottom: 10px;
-            line-height: 35px;
-            text-align: center;
-            span {
-              font-weight: 500;
-            }
-          }
-
           .form__check {
             display: flex;
             flex-direction: column;
@@ -100,7 +98,6 @@
         left: 0;
         width: 50%;
         z-index: 1;
-        opacity: 0;
       }
 
       .overlay__container {
@@ -157,10 +154,6 @@
           }
         }
       }
-
-      // &.right-panel-active .overlay {
-      //     transform: translateX(50%);
-      // }
     }
   }
 }

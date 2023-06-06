@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from './loginPage.module.scss'
 import { useForm } from 'react-hook-form';
-import RegisterComponent from './RegisterComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import { DispatchType, RootState } from '../../Redux/store';
 import { loginUser } from '../../Redux/Services/loginAPI';
-import { fetchLoginAction } from '../../Redux/Slices/userSlice';
-import { Navigate, useSearchParams } from 'react-router-dom';
+import { cleanUpUser, fetchLoginAction } from '../../Redux/Slices/userSlice';
+import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import Button from '../../Core/Button';
+import { toast } from 'react-toastify';
 
 type Props = {}
 
@@ -36,25 +37,38 @@ function LoginPage({ }: Props) {
     });
 
     const dispatch: DispatchType = useDispatch();
-    const { user } = useSelector((state: RootState) => {
+    const { user, isError } = useSelector((state: RootState) => {
         return state.userReducer;
     });
 
     const [searchParams, _] = useSearchParams();
 
-
-    const onSubmit = (values: string) => {
-        // dispatch(fetchLoginAction({ ...values }));
+    const onSubmit = (values: {
+        taiKhoan: string,
+        matKhau: string,
+    }) => {
+        dispatch(fetchLoginAction(values));
     };
 
-    // if (user) {
-    //     if (searchParams.get(`fallbackUrl`)) {
-    //         return <Navigate to={searchParams.get(`fallbackUrl`) || ""} />;
-    //     }
-    //     return <Navigate to="/" />;
-    // }
+    const navigate = useNavigate();
 
+    const handleNavigateToRegister = () => {
+        navigate("/register")
+    }
 
+    useEffect(() => {
+        if (isError) {
+            toast.error("Đăng nhập không thành công, vui lòng kiểm tra lại thông tin")
+            dispatch(cleanUpUser());
+        }
+    }, [isError])
+
+    if (user) {
+        if (searchParams.get(`fallbackUrl`)) {
+            return <Navigate to={searchParams.get(`fallbackUrl`) || ""} />;
+        }
+        return <Navigate to="/" />;
+    }
 
     return (
         <div className={styles.login}>
@@ -63,11 +77,13 @@ function LoginPage({ }: Props) {
                 <div className={styles.container} id='container'>
                     <div className={`${styles.form__content} ${styles.login__content}`}>
                         <form
-                            // onSubmit={handleSubmit(onSubmit)}
+                            onSubmit={handleSubmit(onSubmit)}
                             className={styles.login__box}
                         >
-                            <h2>ĐĂNG NHẬP</h2>
-                            <span>hoặc sử dụng tài khoản đã đăng ký của bạn</span>
+                            <div className={styles.title}>
+                                <h1>Đăng nhập</h1>
+                                <span>hoặc sử dụng tài khoản đã đăng ký của bạn</span>
+                            </div>
 
                             <input
                                 type="text"
@@ -101,28 +117,24 @@ function LoginPage({ }: Props) {
                             />
                             {errors.matKhau && <p>{errors.matKhau.message}</p>}
 
+                            <Button title="Đăng nhập" color="#fff" bgColor="#36867b" margin='15px 0 0 0' />
+
                             <a href="#">Quên mật khẩu?</a>
-                            <button type="submit">Đăng nhập</button>
+
                         </form>
                     </div>
 
-                    {/* Giao diện đăng ký */}
-                    <div className={`${styles.form__content} ${styles.register__content}`}>
-                        <RegisterComponent />
-                    </div>
 
                     {/* Giao diện Xin chào */}
                     <div className={styles.overlay__container}>
                         <div className={styles.overlay}>
-                            <div className={`${styles.overlay__panel} ${styles.overlay__left}`}>
-                                <h1>Chào mừng bạn đã trở lại!</h1>
-                                <p>Vui lòng đăng nhập để kết nối với tài khoản của bạn</p>
-                                <button className={styles.overlay__button} id="login">Đăng nhập</button>
-                            </div>
                             <div className={`${styles.overlay__panel} ${styles.overlay__right}`}>
-                                <h1>Xin chào!</h1>
-                                <p>Vui lòng nhấn đăng ký để thiết lập thông tin tài khoản của bạn!</p>
-                                <button className={styles.overlay__button} id="register">Đăng ký</button>
+                                <div className={styles.title}>
+                                    <h1>Xin chào!</h1>
+                                    <span>Vui lòng nhấn đăng ký để thiết lập thông tin tài khoản của bạn!</span>
+                                </div>
+                                <Button title="Đăng ký" color="#36867b" bgColor="#fff" onClick={handleNavigateToRegister} />
+
                             </div>
                         </div>
                     </div>

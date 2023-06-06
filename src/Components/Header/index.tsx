@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Core/Button";
 import styles from "./header.module.scss";
 import cls from "classnames";
-import { useSelector } from "react-redux";
-import { RootState } from "../../Redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { DispatchType, RootState } from "../../Redux/store";
+import { logout } from "../../Redux/Slices/userSlice";
 
-type Props = {
-};
+type Props = {};
 
 function Header({ }: Props) {
   const inputSearchRef = useRef("");
@@ -24,12 +24,22 @@ function Header({ }: Props) {
   };
 
   const handleSignin = () => {
-    navigate('/login');
-  }
+    navigate("/login");
+  };
 
   const { categories } = useSelector((state: RootState) => {
     return state.courseCategoriesReducer;
   });
+
+  const { user } = useSelector((state: RootState) => {
+    return state.userReducer;
+  });
+
+  const dispatch: DispatchType = useDispatch();
+
+  const handleToLogOut = () => {
+    dispatch(logout())
+  };
 
   return (
     <div className={styles.container}>
@@ -56,7 +66,9 @@ function Header({ }: Props) {
               {categories.map((item) => {
                 return (
                   <li key={item.maDanhMuc}>
-                    <Link to={`/category/${item.maDanhMuc}`}>{item.tenDanhMuc}</Link>
+                    <Link to={`/category/${item.maDanhMuc}`}>
+                      {item.tenDanhMuc}
+                    </Link>
                   </li>
                 );
               })}
@@ -78,7 +90,15 @@ function Header({ }: Props) {
       </div>
 
       <div className={styles.right}>
-        <Button title="Đăng Nhập" onClick={handleSignin} />
+        {user ? (
+          <div className={styles.info}>
+            <p>{user.hoTen}</p>
+            <img src="./image/pic7.jpg" alt="" />
+            <i className="fa fa-power-off" onClick={handleToLogOut}></i>
+          </div>
+        ) : (
+          <Button title="Đăng Nhập" onClick={handleSignin} />
+        )}
       </div>
     </div>
   );
