@@ -1,12 +1,9 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { courseCategoriesRequest, getCourseInfoAPI } from "../Services/showCourseAPI";
+import {
+    courseCategoriesRequest,
+    getCourseInfoAPI,
+} from "../Services/showCourseAPI";
 
-type CourseInfoList = {
-    maDanhMuc: string;
-    tenDanhMuc: string;
-
-    thongTinKhoaHoc: CourseInfo[];
-}
 
 export type CourseInfo = {
     maKhoaHoc: string;
@@ -31,13 +28,13 @@ export type CourseInfo = {
 };
 
 type InitialStateTypes = {
-    courseInfo: CourseInfoList[];
+    courseInfo: CourseInfo | null;
     isLoading: boolean;
     isError: boolean;
 };
 
 const initialState: InitialStateTypes = {
-    courseInfo: [],
+    courseInfo: null,
     isLoading: false,
     isError: false,
 };
@@ -48,30 +45,8 @@ export const fetchCourseInfoAction = createAsyncThunk(
     `${SLICE_NAMESPACE}/fetch_courseInfo`,
     async (courseId: string) => {
         try {
-
-            // const data = await courseCategoriesRequest();
-
-            // let newData: CourseInfoList[] = data.slice(0);
-            // const temp = newData.map(async (item) => {
-            //   const res = await getCourseInfoAPI(categoryId);
-            //   return {
-            //     ...item,
-            //     thongTinKhoaHoc: res,
-            //   };
-            // });
-      
-            // // Promise.all: sử dụng khi cần đợi tất cả các api có kết quả trả về (thường dùng khi sử dụng call api bên trong vòng lặp)
-            // const result = await Promise.all(temp).then((response: CourseInfoList[]) => {
-            //   return response;
-            // });
-            // return result;
-
-
             const response = await getCourseInfoAPI(courseId);
-
-            let newData: CourseInfoList[] = response.entries();
-
-            return { ...response, thongTinKhoaHoc: newData };
+            return response;
         } catch (error) {
             throw error;
         }
@@ -89,13 +64,8 @@ const courseInfoSlice = createSlice({
         });
         builder.addCase(
             fetchCourseInfoAction.fulfilled,
-            (state, action: PayloadAction<CourseInfoList[]>) => {
-                const newCourseInfo = action.payload;
-                state.courseInfo = newCourseInfo;
-
-                console.log(newCourseInfo);
-
-
+            (state, action: PayloadAction<CourseInfo>) => {
+                state.courseInfo = action.payload;
                 state.isLoading = false;
                 state.isError = false;
             }
