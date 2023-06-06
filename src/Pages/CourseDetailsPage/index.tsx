@@ -1,11 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './courseDetailsPage.module.scss'
 import cls from 'classnames'
 import Card from '../../Core/Card'
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { DispatchType, RootState } from '../../Redux/store'
+import { fetchCourseInfoAction } from '../../Redux/Slices/courseInfoSlice'
+import { fetchCourseCategoriesByIdAction } from '../../Redux/Slices/courseCategoriesByIdSlice'
 
 type Props = {}
 
 function CourseDetailsPage({ }: Props) {
+    const { maKhoaHoc } = useParams();
+
+    const { courseInfo } = useSelector(
+        (state: RootState) => state.courseInfoReducer
+    );
+
+    const dispatch: DispatchType = useDispatch();
+
+    useEffect(() => {
+        if (maKhoaHoc) {
+            dispatch(fetchCourseInfoAction(maKhoaHoc));
+        }
+    }, [maKhoaHoc]);
+
+    const { courses } = useSelector(
+        (state: RootState) => state.courseCategoriesByIdReducer
+    );
+
+    const cateroryId = courseInfo?.danhMucKhoaHoc.maDanhMucKhoahoc;
+
+    useEffect(() => {
+        if (cateroryId) {
+            dispatch(fetchCourseCategoriesByIdAction(cateroryId));
+        }
+    }, []);
+
     return (
         <section className={styles.courserDetails}>
             <div className={styles.courserDetails__title}>
@@ -35,7 +66,7 @@ function CourseDetailsPage({ }: Props) {
 
                                     <div className={styles.contentRight__intro}>
                                         <p>Lĩnh vực</p>
-                                        <p>Lập trình di động</p>
+                                        <p>{courseInfo?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
                                     </div>
                                 </div>
                             </div>
@@ -293,21 +324,12 @@ function CourseDetailsPage({ }: Props) {
                                 </div>
                             </div>
                         </div>
-
-                        <div className={styles.courseExploreMore}>
-                            <h6><a href="">Khóa học tham khảo</a></h6>
-
-                            <div className='row'>
-                                {/* <Card /> */}
-                            </div>
-                        </div>
                     </div>
 
                     <div className={cls('row', styles.courserDetails__left)}>
                         <div className={styles.content__left}>
                             <div className={styles.content__leftBox}>
-                                <img src="https://elearningnew.cybersoft.edu.vn/hinhanh/kotlin-tren-android_gp01.jpg" />
-
+                                <img src={courseInfo?.hinhAnh} alt={courseInfo?.maKhoaHoc} />
                                 <div className={styles.content__price}>
                                     <p>
                                         <i className="fas fa-bolt" />
@@ -362,7 +384,23 @@ function CourseDetailsPage({ }: Props) {
                     </div>
                 </div>
             </div>
-        </section>
+
+            <div className={styles.courseExploreMore}>
+                <h6><a href="">Khóa học tham khảo</a></h6>
+
+                <div className={styles.courserDetails__item}>
+                    <div className={cls("row gutter")}>
+                        {courses?.slice(0, 4).map((course) => {
+                            return (
+                                <div key={course.maKhoaHoc} className="col-6 col-4 col-3 colter">
+                                    <Card course={course} isTag isShowInfoDetails />
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        </section >
     )
 }
 

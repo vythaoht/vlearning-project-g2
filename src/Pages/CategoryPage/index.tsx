@@ -12,13 +12,6 @@ type Props = {}
 function CategoryPage({ }: Props) {
   const { maDanhMuc } = useParams();
 
-  // const backend = 'BackEnd';
-  // const design = 'Design';
-  // const mobile = 'DiDong';
-  // const frontend = 'FrontEnd';
-  // const fullstack = 'FullStack';
-  // const thinking = 'TuDuy';
-
   return (
     <section className={styles.category}>
       <div className={styles.category__title}>
@@ -26,14 +19,6 @@ function CategoryPage({ }: Props) {
         <p>HÃY CHỌN KHÓA HỌC MONG MUỐN !!!</p>
       </div>
 
-      {/* Sử dụng bậc tam thức (conditional renderings) để chuyển trang */}
-      {/* {maDanhMuc === backend ? <ProgramBE /> :
-        maDanhMuc === design ? <WebDesign /> :
-          maDanhMuc === mobile ? <ProgramMobile /> :
-            maDanhMuc === frontend ? <ProgramFE /> :
-              maDanhMuc === fullstack ? <ProgramFT /> :
-                maDanhMuc === thinking ? <ThinkingProgram /> :
-                  null} */}
       <ProgramBE title={mappingTitle(maDanhMuc || '')} />
     </section>
   )

@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@types/loadable__component": "^5.13.4"
+    "@types/loadable__component": "^5.13.4",
+    "@types/react-slick": "^0.23.10"
   }
 }

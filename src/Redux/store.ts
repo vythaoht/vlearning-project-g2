@@ -7,6 +7,8 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import userSlice from "./Slices/userSlice";
+import courseInfoReducer from "./Slices/courseInfoSlice";
+import courseListReducer from "./Slices/courseListSlice";
 
 const persistConfig = {
   key: "root",
@@ -20,6 +22,8 @@ const pReducer = persistReducer(
     userReducer: userSlice,
     courseCategoriesReducer,
     courseCategoriesByIdReducer,
+    courseInfoReducer,
+    courseListReducer,
     searchReducer,
   })
 );

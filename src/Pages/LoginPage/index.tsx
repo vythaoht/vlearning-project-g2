@@ -102,7 +102,7 @@ function LoginPage({ }: Props) {
                             {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
 
                             <input
-                                type={"password"}
+                                type={"text"}
                                 placeholder="Mật Khẩu *"
                                 {...register("matKhau", {
                                     required: {

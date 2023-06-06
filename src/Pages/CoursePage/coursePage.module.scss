@@ -88,7 +88,11 @@
     }
 
     .course__boxList {
-        padding: 50px;
+        padding: 20px;
+
+        .course__itemList {
+            margin-top: 15px;
+        }
 
         h6 {
             font-size: 20px;

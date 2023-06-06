@@ -1,23 +1,32 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './coursePage.module.scss'
 import cls from 'classnames'
 import Card from '../../Core/Card'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCourseCategoriesAction } from '../../Redux/Slices/courseCategoriesSlice'
 import { DispatchType, RootState } from '../../Redux/store'
+import { fetchCourseListAction } from '../../Redux/Slices/courseListSlice'
+import Pagination from '../../Core/Pagination/Pagination'
 
 type Props = {}
 
 function CoursePage({ }: Props) {
     const dispatch: DispatchType = useDispatch();
     useEffect(() => {
-        dispatch(fetchCourseCategoriesAction());
+        dispatch(fetchCourseListAction());
     }, []);
 
-    const { categories } = useSelector(
-        (state: RootState) => state.courseCategoriesReducer
+    const { courseList } = useSelector(
+        (state: RootState) => state.courseListReducer
     );
+
+    // xử lý phân trang
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(8);
+
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentPost = courseList.slice(firstPostIndex, lastPostIndex);
 
     return (
         <section className={styles.course}>
@@ -71,7 +80,6 @@ function CoursePage({ }: Props) {
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div className={styles.course__boxList}>
@@ -80,25 +88,26 @@ function CoursePage({ }: Props) {
                     Danh sách khóa học
                 </h6>
 
-                <div className={styles.course__item}>
-                    {categories.map((item) => {
-                        return (
-                            <div key={item.maDanhMuc}>
-                                <div className={cls("row gutter", styles.items)}>
-                                    {item.khoaHocLienQuan.map((course) => {
-                                        return (
-                                            <div key={course.maKhoaHoc} className="col-6 col-4 col-3 colter">
-                                                <Card course={course} />
-                                            </div>
-                                        );
-                                    })}
+                <div className={styles.course__itemList}>
+                    <div className={cls("row gutter")}>
+                        {currentPost?.map((course) => {
+                            return (
+                                <div key={course.maKhoaHoc} className="col-6 col-3 col-4 colter">
+                                    <Card course={course} />
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
+                    <Pagination
+                        totalPosts={courseList.length}
+                        postsPerPage={postsPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                    />
                 </div>
+
             </div>
-        </section>
+        </section >
     )
 }
 
