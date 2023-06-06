@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import styles from './registerCompnent.module.scss'
-import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { DispatchType, RootState } from '../../../Redux/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../../../Redux/Services/registerAPI';
+import React, { useState } from "react";
+import styles from "./registerForm.module.scss";
+import { useForm } from "react-hook-form";
+import { Navigate, useNavigate } from "react-router-dom";
+import { DispatchType, RootState } from "../../../Redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../../Redux/Services/registerAPI";
+import { toast } from "react-toastify";
+import Button from "../../../Core/Button";
+type Props = {};
 
-type Props = {}
-
-function RegisterComponent({ }: Props) {
+function RegisterForm({ }: Props) {
     const [isLoading, setIsLoading] = useState(false);
 
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm({
         defaultValues: {
@@ -28,32 +28,39 @@ function RegisterComponent({ }: Props) {
     });
 
     const navigate = useNavigate();
-    const dispatch: DispatchType = useDispatch();
+    // const dispatch: DispatchType = useDispatch();
     const { user } = useSelector((state: RootState) => {
         return state.userReducer;
     });
 
-    const onSubmit = async (values: string) => {
+    const onSubmit = async (values: {
+        taiKhoan: string;
+        matKhau: string;
+        email: string;
+        soDt: string;
+        maNhom: string;
+        hoTen: string;
+    }) => {
         try {
             setIsLoading(true);
-            // await registerUser({ ...values });
-            // toast.success("Đăng ký thành công");
+            await registerUser(values);
+            toast.success("Đăng ký thành công");
             navigate(`/login`);
-        } catch (error) {
-            // toast.error(error);
+        } catch {
+            toast.error("Đăng ký không thành công");
         } finally {
             setIsLoading(false);
         }
     };
 
-    // if (user) {
-    //     return <Navigate to="/" />;
-    // }
+    if (user) {
+        return <Navigate to="/" />;
+    }
 
     return (
         <div className={styles.register}>
-            <form className={styles.register__box}>
-                <h2 className="pt-3">ĐĂNG KÝ</h2>
+            <form className={styles.register__box} onSubmit={handleSubmit(onSubmit)}>
+                <h1 className="pt-3">Đăng ký</h1>
 
                 {/* Text tài khoản */}
                 <input
@@ -139,9 +146,10 @@ function RegisterComponent({ }: Props) {
                         required: {
                             value: true,
                             message: "Vui lòng chọn loại người dùng",
-                        }
+                        },
                     })}
                 >
+                    <option value="">Mã nhóm</option>
                     <option value="GP01">GP01</option>
                     <option value="GP02">GP02</option>
                     <option value="GP03">GP03</option>
@@ -153,13 +161,17 @@ function RegisterComponent({ }: Props) {
                     <option value="GP09">GP09</option>
                     <option value="GP010">GP010</option>
                 </select>
-
                 {errors.maNhom && <p>{errors.maNhom.message}</p>}
-
-                <button type="submit">Đăng ký</button>
+                <Button
+                    title="Đăng ký"
+                    color="#fff"
+                    bgColor="#36867b"
+                    margin="15px 0 0 0"
+                    loading={isLoading}
+                />
             </form>
         </div>
-    )
+    );
 }
 
-export default RegisterComponent
+export default RegisterForm;
