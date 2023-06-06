@@ -16,8 +16,6 @@ function CourseDetailsPage({ }: Props) {
         (state: RootState) => state.courseInfoReducer
     );
 
-    // console.log(courseInfo);
-
     const dispatch: DispatchType = useDispatch();
 
     useEffect(() => {
@@ -56,7 +54,7 @@ function CourseDetailsPage({ }: Props) {
                                     <div className={styles.contentRight__intro}>
                                         <p>Lĩnh vực</p>
 
-                                        {courseInfo?.map((item) => {
+                                        {/* {courseInfo?.map((item) => {
                                             // console.log(courseInfo);
 
                                             return (
@@ -64,7 +62,8 @@ function CourseDetailsPage({ }: Props) {
                                                     <p>{item.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
                                                 </div>
                                             )
-                                        })}
+                                        })} */}
+                                        <p>{courseInfo?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
                                     </div>
                                 </div>
                             </div>
