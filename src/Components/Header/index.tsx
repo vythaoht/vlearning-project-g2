@@ -41,6 +41,10 @@ function Header({ }: Props) {
     dispatch(logout())
   };
 
+  const handleToInfoPage = () => {
+    navigate("/inforUser")
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -93,7 +97,7 @@ function Header({ }: Props) {
         {user ? (
           <div className={styles.info}>
             <p>{user.hoTen}</p>
-            <img src="/image/pic7.jpg" alt="" />
+            <img src="/image/pic7.jpg" alt="#" onClick={handleToInfoPage} />
             <i className="fa fa-power-off" onClick={handleToLogOut}></i>
           </div>
         ) : (
