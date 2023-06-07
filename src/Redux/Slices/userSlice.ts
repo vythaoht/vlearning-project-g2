@@ -1,4 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { updateInfoUserRequest, UpdateUserPayload } from "../Services/infoUser";
 import { loginUser } from "../Services/loginAPI";
 import { registerUser } from "../Services/registerAPI";
 
@@ -6,6 +7,10 @@ type User = {
   taiKhoan: string;
   matKhau: string;
   hoTen: string;
+  email: string;
+  soDT: string;
+  maLoaiNguoiDung: string;
+  maNhom: string;
 };
 
 type InitialStateTypes = {
@@ -50,6 +55,9 @@ const userSlice = createSlice({
       state.isError = false;
       state.isLoading = false;
     },
+    updateInfoUser: (state, action) => {
+      state.user = action.payload;
+    },
   },
   extraReducers: (builder) => {
     // Đăng nhập
@@ -60,7 +68,7 @@ const userSlice = createSlice({
       fetchLoginAction.fulfilled,
       (state, action: PayloadAction<User>) => {
         state.user = action.payload;
-        state.isLoading = true;
+        state.isLoading = false;
       }
     );
     builder.addCase(fetchLoginAction.rejected, (state) => {
@@ -71,4 +79,4 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { logout, cleanUpUser } = userSlice.actions;
+export const { logout, cleanUpUser, updateInfoUser } = userSlice.actions;

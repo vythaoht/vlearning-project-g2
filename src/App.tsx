@@ -12,6 +12,7 @@ import CategoryPage from "./Pages/CategoryPage";
 import LoginPage from "./Pages/LoginPage";
 import CourseDetailsPage from "./Pages/CourseDetailsPage";
 import RegisterPage from "./Pages/RegisterPage";
+import UserInfoPage from "./Pages/UserInfoPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/searching" element={<SearchingCoursePage />} />
           <Route path="/category/:maDanhMuc" element={<CategoryPage />} />
           <Route path="/details/:maKhoaHoc" element={<CourseDetailsPage />} />
+          <Route path="/inforUser" element={<UserInfoPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
