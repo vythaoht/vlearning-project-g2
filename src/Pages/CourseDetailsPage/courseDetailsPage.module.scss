@@ -265,6 +265,11 @@
                             transform: scale(.97);
                         }
 
+                        @media screen and (max-width: 576px) {
+                            padding: 10px 170px !important;
+                            font-size: 17px;
+                        }
+
                         @media screen and (max-width: 768px) {
                             padding: 10px 90px;
                             font-size: 17px;
