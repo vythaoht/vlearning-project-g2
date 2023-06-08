@@ -52,7 +52,7 @@ function CourseDetailsPage({ }: Props) {
         if (cateroryId) {
             dispatch(fetchCourseCategoriesByIdAction(cateroryId));
         }
-    }, []);
+    }, [cateroryId]);
 
     return (
         <section className={styles.courserDetails}>
@@ -62,49 +62,47 @@ function CourseDetailsPage({ }: Props) {
             </div>
 
             <div className={styles.courserDetails__content}>
-                <div className="row">
-                    <div className={styles.courserDetails__right}>
+                <div className={styles.row}>
+                    <div className={styles.courserDetails__left}>
                         <h4>Kotlin Trên Android</h4>
 
-                        <div className={styles.contentRight__header}>
-                            <div className={cls("col")}>
-                                <div className={styles.contentRight__info}>
+                        <div className={styles.contentLeft__header}>
+                            <div className={styles.contentLeft__info}>
+                                <div className={styles.contentLeft__img}>
                                     <img src="/image/one.jpg" alt="" />
+                                </div>
 
-                                    <div className={styles.contentRight__intro}>
-                                        <p>Giảng viên</p>
-                                        <p>Robert Ngô Ngọc</p>
-                                    </div>
+                                <div className={styles.contentLeft__intro}>
+                                    <p>Giảng viên</p>
+                                    <p>Robert Ngô Ngọc</p>
                                 </div>
                             </div>
-                            <div className={cls("col")}>
-                                <div className={styles.contentRight__info}>
+                            <div className={styles.contentLeft__info}>
+                                <div className={styles.contentLeft__img}>
                                     <i className="fas fa-graduation-cap"></i>
+                                </div>
 
-                                    <div className={styles.contentRight__intro}>
-                                        <p>Lĩnh vực</p>
-                                        <p>{courseInfo?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
-                                    </div>
+                                <div className={styles.contentLeft__intro}>
+                                    <p>Lĩnh vực</p>
+                                    <p>{courseInfo?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</p>
                                 </div>
                             </div>
-                            <div className={cls("col")}>
-                                <div className={styles.contentRight__info}>
-                                    <div className={styles.contentRight__review}>
-                                        <span>
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star-half-alt" />
-                                            <i className="far fa-star" />
-                                            3.5
-                                        </span>
-                                        <p>100 đánh giá</p>
-                                    </div>
+                            <div className={styles.contentLeft__info}>
+                                <div className={styles.contentLeft__review}>
+                                    <span>
+                                        <i className="fas fa-star" />
+                                        <i className="fas fa-star" />
+                                        <i className="fas fa-star" />
+                                        <i className="fas fa-star-half-alt" />
+                                        <i className="far fa-star" />
+                                        3.5
+                                    </span>
+                                    <p>100 đánh giá</p>
                                 </div>
                             </div>
                         </div>
 
-                        <p className={styles.contentRight__des}>
+                        <p className={styles.contentLeft__des}>
                             React.js là thư viện JavaScript phổ biến nhất mà bạn có thể sử
                             dụng và tìm hiểu ngày nay để xây dựng giao diện người dùng hiện
                             đại, phản ứng cho web.Khóa học này dạy bạn về React chuyên sâu, từ
@@ -121,11 +119,11 @@ function CourseDetailsPage({ }: Props) {
                             trọng!
                         </p>
 
-                        <div className={styles.contentRight__courseLearn}>
+                        <div className={styles.contentLeft__courseLearn}>
                             <h6>Những gì bạn sẽ học</h6>
 
                             <div className="row">
-                                <div className={cls("col-6", styles.contentRight__padding)}>
+                                <div className={cls("col-6", styles.contentLeft__padding)}>
                                     <ul>
                                         <li>
                                             <i className="fas fa-check" />
@@ -157,7 +155,7 @@ function CourseDetailsPage({ }: Props) {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className={cls("col-6", styles.contentRight__padding)}>
+                                <div className={cls("col-6", styles.contentLeft__padding)}>
                                     <ul>
                                         <li>
                                             <i className="fas fa-check" />
@@ -192,7 +190,7 @@ function CourseDetailsPage({ }: Props) {
                             </div>
                         </div>
 
-                        <div className={styles.contentRight__course}>
+                        <div className={styles.contentLeft__course}>
                             <h6>Nội dung khóa học</h6>
 
                             {/* Mục 1: giới thiệu  */}
@@ -428,9 +426,9 @@ function CourseDetailsPage({ }: Props) {
                         </div>
                     </div>
 
-                    <div className={cls("row", styles.courserDetails__left)}>
-                        <div className={styles.content__left}>
-                            <div className={styles.content__leftBox}>
+                    <div className={styles.courserDetails__right}>
+                        <div className={styles.content__right}>
+                            <div className={styles.content__rightBox}>
                                 <img src={courseInfo?.hinhAnh} alt={courseInfo?.maKhoaHoc} />
                                 <div className={styles.content__price}>
                                     <p>
@@ -441,7 +439,7 @@ function CourseDetailsPage({ }: Props) {
                                 </div>
 
                                 <button
-                                    className={styles.content__leftButton}
+                                    className={styles.content__rightButton}
                                     onClick={() => fetchCourseRegistration({
                                         taiKhoan: user?.taiKhoan || "",
                                         maKhoaHoc: maKhoaHoc,
@@ -450,7 +448,7 @@ function CourseDetailsPage({ }: Props) {
                                     Đăng ký
                                 </button>
 
-                                <div className={styles.content__leftInfo}>
+                                <div className={styles.content__rightInfo}>
                                     <ul>
                                         <li>
                                             <p>

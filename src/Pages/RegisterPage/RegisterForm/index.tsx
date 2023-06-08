@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./registerForm.module.scss";
 import { useForm } from "react-hook-form";
 import { Navigate, useNavigate } from "react-router-dom";
-import { DispatchType, RootState } from "../../../Redux/store";
-import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../Redux/store";
+import { useSelector } from "react-redux";
 import { registerUser } from "../../../Redux/Services/registerAPI";
 import { toast } from "react-toastify";
 import Button from "../../../Core/Button";
@@ -28,7 +28,6 @@ function RegisterForm({ }: Props) {
     });
 
     const navigate = useNavigate();
-    // const dispatch: DispatchType = useDispatch();
     const { user } = useSelector((state: RootState) => {
         return state.userReducer;
     });
@@ -60,7 +59,7 @@ function RegisterForm({ }: Props) {
     return (
         <div className={styles.register}>
             <form className={styles.register__box} onSubmit={handleSubmit(onSubmit)}>
-                <h1 className="pt-3">Đăng ký</h1>
+                <h1>Đăng ký</h1>
 
                 {/* Text tài khoản */}
                 <input

@@ -73,20 +73,6 @@ ul {
 }
 
 
-/* @media (min-width: 768px) {
-  .col-md-2 {
-    flex: 0 0 16.666667%;
-    max-width: 16.666667%;
-  }
-}
-
-@media (min-width: 576px) {
-  .col-sm-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
-} */
-
 @media screen and (max-width: 992px) {
   .col-4 {
     width: calc(100%/3) !important;
