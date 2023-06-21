@@ -9,10 +9,13 @@ import { loginUser } from '../../Redux/Services/loginAPI';
 import { fetchLoginAction } from '../../Redux/Slices/userSlice';
 import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import Button from '../../Core/Button';
+import useLoading from '../../Hooks/useLoading';
+import Loading from '../../Components/Loading';
 
 type Props = {}
 
 function RegisterPage({ }: Props) {
+    const showLoading = useLoading()
 
 
     const navigate = useNavigate()
@@ -48,6 +51,9 @@ function RegisterPage({ }: Props) {
                     </div>
                 </div>
             </div>
+            {
+                showLoading && <Loading />
+            }
         </div>
     )
 }

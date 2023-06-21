@@ -5,7 +5,7 @@ import styles from "./loading.module.scss";
 
 type Props = {};
 
-function Loading({ }: Props) {
+function NotFoundPage({ }: Props) {
     const navigate = useNavigate();
     const handleHomePage = () => {
         navigate("/")
@@ -27,4 +27,4 @@ function Loading({ }: Props) {
     );
 }
 
-export default Loading;
+export default NotFoundPage;
