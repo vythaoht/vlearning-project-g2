@@ -12,6 +12,7 @@ import {
     courseRegistrationRequest,
 } from "../../Redux/Services/courseRegistration";
 import { toast } from "react-toastify";
+import useScrollTop from "../../hooks/useScrollTop";
 
 type Props = {};
 
@@ -32,6 +33,7 @@ function CourseDetailsPage({ }: Props) {
     };
 
     const dispatch: DispatchType = useDispatch();
+    useScrollTop()
 
     useEffect(() => {
         if (maKhoaHoc) {
