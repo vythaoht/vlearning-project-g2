@@ -9,21 +9,13 @@ import { cleanUpUser, fetchLoginAction } from '../../Redux/Slices/userSlice';
 import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import Button from '../../Core/Button';
 import { toast } from 'react-toastify';
+import useLoading from '../../Hooks/useLoading';
+import Loading from '../../Components/Loading';
 
 type Props = {}
 
 function LoginPage({ }: Props) {
-    // const signUpButton = document.getElementById('login');
-    // const signInButton = document.getElementById('register');
-    // const container = document.getElementById('container');
-
-    // signUpButton.addEventListener('click', () => {
-    //     container.classList.add("right-panel-active");
-    // });
-
-    // signInButton.addEventListener('click', () => {
-    //     container.classList.remove("right-panel-active");
-    // });
+    const showLoading = useLoading()
 
     const {
         register,
@@ -102,7 +94,7 @@ function LoginPage({ }: Props) {
                             {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
 
                             <input
-                                type={"text"}
+                                type={"password"}
                                 placeholder="Mật Khẩu *"
                                 {...register("matKhau", {
                                     required: {
@@ -140,6 +132,9 @@ function LoginPage({ }: Props) {
                     </div>
                 </div>
             </div>
+            {
+                showLoading && <Loading />
+            }
         </div>
     )
 }
