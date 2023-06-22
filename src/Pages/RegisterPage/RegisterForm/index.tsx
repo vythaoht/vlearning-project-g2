@@ -149,16 +149,7 @@ function RegisterForm({ }: Props) {
                     })}
                 >
                     <option value="">Mã nhóm</option>
-                    <option value="GP01">GP01</option>
                     <option value="GP02">GP02</option>
-                    <option value="GP03">GP03</option>
-                    <option value="GP04">GP04</option>
-                    <option value="GP05">GP05</option>
-                    <option value="GP06">GP06</option>
-                    <option value="GP07">GP07</option>
-                    <option value="GP08">GP08</option>
-                    <option value="GP09">GP09</option>
-                    <option value="GP010">GP010</option>
                 </select>
                 {errors.maNhom && <p>{errors.maNhom.message}</p>}
                 <Button

@@ -96,7 +96,7 @@ function UserInfoPage({ }: Props) {
                 setListCourseRegister(data.chiTietKhoaHocGhiDanh)
             }
         } catch (error) {
-            console.log(error);
+            toast.error("Lấy thông tin thất bại")
         }
     }
 
