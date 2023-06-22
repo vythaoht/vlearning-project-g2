@@ -13,7 +13,6 @@ function ShowDetails({ course }: Props) {
     const {
         maKhoaHoc,
         tenKhoaHoc,
-        moTa
     } = course;
 
     return (
@@ -25,7 +24,9 @@ function ShowDetails({ course }: Props) {
             <h6>{tenKhoaHoc}</h6>
 
             <div className={styles.cardContent}>
-                <article>{moTa}</article>
+                <p>
+                    Đã có hơn 6200 bạn đăng kí học và có việc làm thông qua chương trình đào tạo Bootcamp Lập trình Front End chuyên nghiệp. Khóa học 100% thực hành cường độ cao theo dự án thực tế và kết nối doanh nghiệp hỗ trợ tìm việc ngay sau khi học...
+                </p>
             </div>
 
             <div className={styles.card__footer}>

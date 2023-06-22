@@ -16,7 +16,6 @@ function SearchingCoursePage({ }: Props) {
         dispatch(fetchListCourseAction(searchParams.get("query") || ""));
     }, [searchParams.get("query")]);
     const { searchList } = useSelector((state: RootState) => state.searchReducer);
-    console.log(searchList)
     return (
         <div className={styles.container}>
             <div>

@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: column;
   transition: all 0.5s;
-  width: 250px;
+  width: 280px;
   word-wrap: break-word;
   padding: 15px;
   border-radius: 5px;
+  min-height: 390px;
 
   h6 {
     font-size: 15px;
@@ -31,14 +32,9 @@
 
   .cardContent {
     color: gray;
-    font-size: 14px;
 
-    article {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
+    p {
+      font-size: 17px;
     }
   }
 
@@ -48,12 +44,70 @@
     button {
       background-color: #41b294;
       color: #fff;
-      padding: 10px 70px;
+      padding: 10px 90px;
       border: none;
       cursor: pointer;
 
       &:hover {
         transform: scale(0.97);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ShowDetails {
+    width: 250px;
+
+    .cardContent {
+      p {
+        font-size: 16px;
+      }
+    }
+
+    .card__footer {
+
+      button {
+        padding: 10px 70px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ShowDetails {
+    width: 285px;
+
+    .cardContent {
+      p {
+        font-size: 17px;
+      }
+    }
+
+    .card__footer {
+
+      button {
+        padding: 5px 100px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .ShowDetails {
+    width: 240px;
+
+    .cardContent {
+      p {
+        font-size: 15px;
+      }
+    }
+
+    .card__footer {
+
+      button {
+        padding: 10px 50px 10px 75px;
+        font-size: 15px;
       }
     }
   }
