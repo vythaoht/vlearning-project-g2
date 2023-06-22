@@ -4,7 +4,7 @@ import styles from './registerPage.module.scss'
 import RegisterComponent from './RegisterForm';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../Core/Button';
-import useLoading from '../../Hooks/useLoading';
+import useLoading from '../../hooks/useLoading';
 import Loading from '../../Components/Loading';
 
 type Props = {}

@@ -10,7 +10,7 @@ import { DispatchType, RootState } from "../../Redux/store";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { updateInfoUser } from "../../Redux/Slices/userSlice";
-import useScrollTop from "../../Hooks/useScrollTop";
+import useScrollTop from "../../hooks/useScrollTop";
 
 type Props = {};
 
