@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerUser } from "../../Redux/Services/registerAPI";
 import styles from "./userInfoPage.module.scss"
 import Button from "../../Core/Button";
 import { DeleteCoursePayload, deleteCourseRegister, infoUserRequest, updateInfoUserRequest } from "../../Redux/Services/infoUser";

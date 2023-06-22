@@ -5,7 +5,7 @@ import { DispatchType, RootState } from '../../../Redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../../Core/Card';
 import cls from 'classnames'
-import { Course, fetchCourseCategoriesByIdAction } from '../../../Redux/Slices/courseCategoriesByIdSlice';
+import { fetchCourseCategoriesByIdAction } from '../../../Redux/Slices/courseCategoriesByIdSlice';
 
 type Props = {
   title: string

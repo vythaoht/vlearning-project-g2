@@ -1,13 +1,8 @@
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './registerPage.module.scss'
-import { useForm } from 'react-hook-form';
 import RegisterComponent from './RegisterForm';
-import { useDispatch, useSelector } from 'react-redux';
-import { DispatchType, RootState } from '../../Redux/store';
-import { loginUser } from '../../Redux/Services/loginAPI';
-import { fetchLoginAction } from '../../Redux/Slices/userSlice';
-import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Core/Button';
 import useLoading from '../../Hooks/useLoading';
 import Loading from '../../Components/Loading';
@@ -17,12 +12,10 @@ type Props = {}
 function RegisterPage({ }: Props) {
     const showLoading = useLoading()
 
-
     const navigate = useNavigate()
     const handleNavigateToLogin = () => {
         navigate("/login")
     }
-
 
     return (
         <div className={styles.login}>
