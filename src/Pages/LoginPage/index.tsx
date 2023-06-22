@@ -1,12 +1,11 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styles from './loginPage.module.scss'
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { DispatchType, RootState } from '../../Redux/store';
-import { loginUser } from '../../Redux/Services/loginAPI';
 import { cleanUpUser, fetchLoginAction } from '../../Redux/Slices/userSlice';
-import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import Button from '../../Core/Button';
 import { toast } from 'react-toastify';
 import useLoading from '../../Hooks/useLoading';

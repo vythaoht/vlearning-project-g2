@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./courseDetailsPage.module.scss";
 import cls from "classnames";
 import Card from "../../Core/Card";
