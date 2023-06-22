@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom"
 import Footer from '../../Components/Footer'
 import Header from '../../Components/Header'
 import Loading from '../../Components/Loading'
-import useLoading from '../../hooks/useLoading'
+import useLoading from '../../Hooks/useLoading'
 import styles from "./homeTemplate.module.scss"
 
 type Props = {}
