@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./courseDetailsPage.module.scss";
 import cls from "classnames";
 import Card from "../../Core/Card";
@@ -431,7 +431,11 @@ function CourseDetailsPage({ }: Props) {
                     <div className={styles.courserDetails__right}>
                         <div className={styles.content__right}>
                             <div className={styles.content__rightBox}>
-                                <img src={courseInfo?.hinhAnh} alt={courseInfo?.maKhoaHoc} />
+                                <img
+                                    src={courseInfo?.hinhAnh}
+                                    alt={courseInfo?.maKhoaHoc}
+
+                                />
                                 <div className={styles.content__price}>
                                     <p>
                                         <i className="fas fa-bolt" />

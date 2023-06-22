@@ -3,6 +3,7 @@ import styles from './showDetails.module.scss'
 import cls from 'classnames'
 import { useNavigate } from 'react-router-dom'
 import { Course } from '../../Redux/Slices/courseCategoriesSlice'
+import Button from '../../Core/Button'
 
 type Props = {
     course: Course;
@@ -30,14 +31,10 @@ function ShowDetails({ course }: Props) {
             </div>
 
             <div className={styles.card__footer}>
-                <button
-                    className={styles.ShowDetails__button}
+                <Button title="Chi tiết" bgColor='#41b294'
                     onClick={() => {
                         navigate(`/details/${maKhoaHoc}`)
-                    }}
-                >
-                    Xem chi tiết
-                </button>
+                    }} />
             </div>
         </div>
 

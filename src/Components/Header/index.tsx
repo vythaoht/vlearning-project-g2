@@ -70,7 +70,8 @@ function Header({ }: Props) {
               {categories.map((item) => {
                 return (
                   <li key={item.maDanhMuc}>
-                    <Link to={`/category/${item.maDanhMuc}`}>
+                    <Link className={styles.upperCase}
+                      to={`/category/${item.maDanhMuc}`}>
                       {item.tenDanhMuc}
                     </Link>
                   </li>
