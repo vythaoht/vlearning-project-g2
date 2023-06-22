@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/lib/integration/react";
-import { persistor } from "./Redux/store";
+import { persistor } from "./Redux/store"; 
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
