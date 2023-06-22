@@ -8,7 +8,7 @@ import { cleanUpUser, fetchLoginAction } from '../../Redux/Slices/userSlice';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import Button from '../../Core/Button';
 import { toast } from 'react-toastify';
-import useLoading from '../../Hooks/useLoading';
+import useLoading from '../../hooks/useLoading';
 import Loading from '../../Components/Loading';
 
 type Props = {}

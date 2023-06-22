@@ -12,7 +12,7 @@ import {
     courseRegistrationRequest,
 } from "../../Redux/Services/courseRegistration";
 import { toast } from "react-toastify";
-import useScrollTop from "../../Hooks/useScrollTop";
+import useScrollTop from "../../hooks/useScrollTop";
 
 type Props = {};
 
