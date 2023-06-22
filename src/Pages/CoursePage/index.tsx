@@ -37,28 +37,28 @@ function CoursePage({ }: Props) {
 
             <div className={styles.course__contentList}>
                 <div className={styles.row}>
-                    <div className={cls('col-md-2 col-sm-4', styles.course__item)}>
+                    <div className={cls(styles.course__item)}>
                         <div className={cls(styles.course__box, styles.backgound1)}>
                             <h6>Chương trình học</h6>
                             <i className="fas fa-laptop" />
                             <p>300</p>
                         </div>
                     </div>
-                    <div className={cls('col-md-2 col-sm-4', styles.course__item)}>
+                    <div className={cls(styles.course__item)}>
                         <div className={cls(styles.course__box, styles.backgound2)}>
                             <h6>Nhà sáng tạo</h6>
                             <i className="fas fa-camera" />
                             <p>10000</p>
                         </div>
                     </div>
-                    <div className={cls('col-md-2 col-sm-4', styles.course__item)}>
+                    <div className={cls(styles.course__item)}>
                         <div className={cls(styles.course__box, styles.backgound3)}>
                             <h6>Nhà thiết kế</h6>
                             <i className="fas fa-briefcase" />
                             <p>400</p>
                         </div>
                     </div>
-                    <div className={cls('col-md-2 col-sm-4', styles.course__item)}>
+                    <div className={cls(styles.course__item)}>
                         <div className={cls(styles.course__box, styles.backgound4)}>
                             <h6>Bài giảng</h6>
                             <i className="fas fa-book" />
