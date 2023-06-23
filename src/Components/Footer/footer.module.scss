@@ -64,6 +64,15 @@
             padding: 8px;
             font-size: 14px;
           }
+
+          .iconLeft {
+            transition: 0.3s;
+            transform: translateY(0);
+            &:hover {
+              color: #41b294;
+              transform: translateY(-3px);
+            }
+          }
         }
 
         @media screen and (max-width: 768px) {

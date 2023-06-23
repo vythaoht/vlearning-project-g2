@@ -33,16 +33,17 @@ function Footer({ }: Props) {
               <span className={styles.titleOne}>V</span>
               <span className={styles.titleTwo}> learning</span>
             </Link>
+
             <ul className={styles.listStyleIcon}>
-              <li className={styles.icon}>
+              <li className={styles.iconLeft}>
                 <i className="fa fa-phone"></i>
                 <span>1800-123-4567</span>
               </li>
-              <li className={styles.icon}>
+              <li className={styles.iconLeft}>
                 <i className="fa fa-envelope-open-text"></i>
                 <span>bonniesoft@gmail.com</span>
               </li>
-              <li className={styles.icon}>
+              <li className={styles.iconLeft}>
                 <i className="fa fa-map-marker-alt"></i>
                 <span>Thành phố Hồ Chí Minh</span>
               </li>
