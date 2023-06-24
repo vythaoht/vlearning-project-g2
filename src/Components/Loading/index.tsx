@@ -17,7 +17,9 @@ function Loading() {
                 left: "50%",
                 transform: "translate(-50%, -50%)"
             }}>
-                <img src="/image/gg.gif" alt='' />
+                <img src="/image/gg.gif" alt=''
+                    loading="lazy"
+                />
             </div>
         </div>
     )

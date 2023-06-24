@@ -14,7 +14,9 @@ function Review({ }: Props) {
                         <img src="./image/review.png"
                             alt="#"
                             width="200"
-                            height="200" />
+                            height="200"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
             </div>

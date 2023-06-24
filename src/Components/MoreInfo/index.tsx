@@ -21,7 +21,9 @@ function MoreInfo({ }: Props) {
 
             <div className={cls("row", styles.container, styles.reverse)}>
                 <div className={cls("col-6", styles.right)}>
-                    <img src="./image/edu.png" alt="#" />
+                    <img src="./image/edu.png" alt="#"
+                        loading="lazy"
+                    />
                 </div>
                 <div className={cls("col-6", styles.left)}>
                     <h2>CHƯƠNG TRÌNH HỌC V LEARNING</h2>
@@ -40,13 +42,17 @@ function MoreInfo({ }: Props) {
                     <div className="styles.clear"></div>
                 </div>
                 <div className={cls("col-6", styles.right)}>
-                    <img src="./image/study.png" alt="#" />
+                    <img src="./image/study.png" alt="#"
+                        loading="lazy"
+                    />
                 </div>
             </div>
 
             <div className={cls("row", styles.container, styles.reverse)}>
                 <div className={cls("col-6", styles.right)}>
-                    <img src="./image/student.png" alt="#" />
+                    <img src="./image/student.png" alt="#"
+                        loading="lazy"
+                    />
                 </div>
                 <div className={cls("col-6", styles.left)}>
                     <h2>SỨ MỆNH V LEARNING</h2>

@@ -12,7 +12,9 @@ function StartUp({ }: Props) {
                 <div className={cls("col-6", styles.left)}>
                     <img src="./image/startup.png"
                         alt="#"
-                        width="400" />
+                        width="400"
+                        loading="lazy"
+                    />
                 </div>
                 <div className={cls("col-6", styles.right)}>
                     <h1>SỰ KIỆN CÔNG NGHỆ DÀNH CHO STARTUP</h1>

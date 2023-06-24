@@ -49,7 +49,9 @@ function Header({ }: Props) {
     <div className={styles.container}>
       <div className={styles.left}>
         <Link to="/">
-          <img src="/image/logo.png" alt="#" height="76" />
+          <img src="/image/logo.png" alt="#" height="76"
+            loading="lazy"
+          />
         </Link>
         <div>
           <form className={styles.formContainer} onSubmit={handleSearch}>
@@ -98,7 +100,9 @@ function Header({ }: Props) {
         {user ? (
           <div className={styles.info}>
             <p>{user.hoTen}</p>
-            <img src="/image/pic7.jpg" alt="#" onClick={handleToInfoPage} />
+            <img src="/image/pic7.jpg" alt="#" onClick={handleToInfoPage}
+              loading="lazy"
+            />
             <i className="fa fa-power-off" onClick={handleToLogOut}></i>
           </div>
         ) : (

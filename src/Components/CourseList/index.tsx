@@ -25,7 +25,7 @@ function CourseList({ }: Props) {
                 return (
                     <div key={item.maDanhMuc}>
                         <p>
-                            <Link to="#">{item.tenDanhMuc}</Link>
+                            <Link to={`/category/${item.maDanhMuc}`}>{item.tenDanhMuc}</Link>
                         </p>
                         <div className={cls("row gutter", styles.items)}>
                             {item.khoaHocLienQuan.map((course) => {

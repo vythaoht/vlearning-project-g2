@@ -14,7 +14,9 @@ function BoxNumber({ }: Props) {
                     <img src="./image/friends.png"
                         alt="#"
                         width="80px"
-                        height="80px" />
+                        height="80px"
+                        loading="lazy"
+                    />
                     <h1>
                         <CountUp end={9000} redraw={true}>
                             {({ countUpRef, start }) => (
@@ -30,7 +32,9 @@ function BoxNumber({ }: Props) {
                     <img src="./image/timetable.png"
                         alt="#"
                         width="80px"
-                        height="80px" />
+                        height="80px"
+                        loading="lazy"
+                    />
                     <h1>
                         <CountUp end={1000} redraw={true}>
                             {({ countUpRef, start }) => (
@@ -47,7 +51,9 @@ function BoxNumber({ }: Props) {
                     <img src="./image/hourglass.png"
                         alt="#"
                         width="80px"
-                        height="80px" />
+                        height="80px"
+                        loading="lazy"
+                    />
                     <h1>
                         <CountUp end={33200} redraw={true}>
                             {({ countUpRef, start }) => (
@@ -64,7 +70,9 @@ function BoxNumber({ }: Props) {
                     <img src="./image/teacher.png"
                         alt="#"
                         width="80px"
-                        height="80px" />
+                        height="80px"
+                        loading="lazy"
+                    />
                     <h1>
                         <CountUp end={400} redraw={true}>
                             {({ countUpRef, start }) => (

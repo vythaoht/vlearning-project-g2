@@ -10,22 +10,30 @@ function Sponsors({ }: Props) {
             <h1 className={styles.title}>NHÀ TÀI TRỢ CHƯƠNG TRÌNH</h1>
             <div className={cls("row gutter", styles.listItem)}>
                 <div className={cls("col-3 colter")}>
-                    <img src="./image/meta.jpg" alt="#" />
+                    <img src="./image/meta.jpg" alt="#"
+                        loading="lazy"
+                    />
                     <h2>FACEBOOK</h2>
                 </div>
                 <div className={cls("col-3 colter")}>
-                    <img src="./image/microsoft.jpg" alt="#" />
+                    <img src="./image/microsoft.jpg" alt="#"
+                        loading="lazy"
+                    />
                     <h2>MICROSOFT</h2>
 
                 </div>
                 <div className={cls("col-3 colter")}>
-                    <img src="./image/Google-logo.jpg" alt="#" />
+                    <img src="./image/Google-logo.jpg" alt="#"
+                        loading="lazy"
+                    />
                     <h2>GOOGLE</h2>
 
 
                 </div>
                 <div className={cls("col-3 colter")}>
-                    <img src="./image/amazon.jpg" alt="#" />
+                    <img src="./image/amazon.jpg" alt="#"
+                        loading="lazy"
+                    />
                     <h2>AMAZON</h2>
 
                 </div>

@@ -15,6 +15,8 @@ function OneOfListRating({ image, name, skill }: Props) {
                 alt="#"
                 width="75"
                 height="75"
+                loading="lazy"
+
             />
             <h4>{name}</h4>
             <p>{skill}</p>
