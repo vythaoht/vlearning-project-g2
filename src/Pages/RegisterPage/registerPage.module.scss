@@ -111,12 +111,18 @@
         left: 0;
         width: 50%;
         z-index: 2;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
       }
 
       .register__content {
         left: 0;
         width: 50%;
         z-index: 1;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
       }
 
       .overlay__container {
@@ -192,6 +198,9 @@
               }
             }
           }
+        }
+        @media screen and (max-width: 768px) {
+          display: none;
         }
       }
     }

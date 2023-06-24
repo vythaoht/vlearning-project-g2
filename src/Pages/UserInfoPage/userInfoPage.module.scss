@@ -71,3 +71,14 @@
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  .container {
+    .left {
+      width: 100%;
+      .formStyle {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -81,6 +81,9 @@ ul {
   .col-6-md {
     width: 50%!important;
   }
+  .colter {
+    padding: 0 2px;
+  }
 }
 @media screen and (max-width: 768px) {
   .col-6 {

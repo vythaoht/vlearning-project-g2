@@ -76,13 +76,13 @@
         }
 
         @media screen and (max-width: 768px) {
-          width: 50% !important;
+          width: 100% !important;
         }
       }
 
       .middle {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         font-weight: bold;
 
         ul li i {
@@ -90,7 +90,7 @@
         }
 
         @media screen and (max-width: 768px) {
-          width: 50% !important;
+          width: 100% !important;
         }
       }
 
@@ -112,6 +112,9 @@
               }
             }
           }
+        }
+        @media screen and (max-width: 768px) {
+          width: 100% !important;
         }
       }
     }

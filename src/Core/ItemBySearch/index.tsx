@@ -59,7 +59,7 @@ function ItemBySearch({ item }: Props) {
                 </div>
 
                 <div className={styles.details}>
-                    <Button title="XEM CHI TIẾT" onClick={() => handleNavigateToDetailsCourse(maKhoaHoc)} />
+                    <Button title="Chi tiết" onClick={() => handleNavigateToDetailsCourse(maKhoaHoc)} />
                 </div>
             </div>
         </div>

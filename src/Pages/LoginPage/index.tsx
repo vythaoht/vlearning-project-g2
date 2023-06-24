@@ -110,7 +110,7 @@ function LoginPage({ }: Props) {
 
                             <Button title="Đăng nhập" color="#fff" bgColor="#36867b" margin='15px 0 0 0' />
 
-                            <a href="#">Quên mật khẩu?</a>
+                            <a href="/register">Đăng ký ngay!</a>
 
                         </form>
                     </div>

@@ -12,6 +12,9 @@
       width: 250px;
       height: 200px;
       margin-right: 20px;
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
     }
 
     .content {
@@ -34,6 +37,12 @@
           margin-right: 10px;
         }
       }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+    .info {
+      width: 70%;
     }
   }
 }
