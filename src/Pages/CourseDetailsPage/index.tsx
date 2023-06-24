@@ -71,7 +71,9 @@ function CourseDetailsPage({ }: Props) {
                         <div className={styles.contentLeft__header}>
                             <div className={styles.contentLeft__info}>
                                 <div className={styles.contentLeft__img}>
-                                    <img src="/image/one.jpg" alt="" />
+                                    <img src="/image/one.jpg" alt=""
+                                        loading="lazy"
+                                    />
                                 </div>
 
                                 <div className={styles.contentLeft__intro}>

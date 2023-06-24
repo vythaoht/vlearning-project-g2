@@ -37,6 +37,7 @@ function Card({ course, isTag, isShowInfoDetails }: Props) {
                         onError={() => {
                             setImgSrc("/image/default.jpeg")
                         }}
+                        loading="lazy"
                     />
                     <span className={styles.title}>{tenKhoaHoc}</span>
                 </div>
@@ -46,7 +47,9 @@ function Card({ course, isTag, isShowInfoDetails }: Props) {
                 <hr />
                 <div className={styles.part3}>
                     <div className={cls(styles.author)}>
-                        <img src="/image/human.png" alt="#" width="45" height="45" />
+                        <img src="/image/human.png" alt="#" width="45" height="45"
+                            loading="lazy"
+                        />
                         <span>{nguoiTao.taiKhoan}</span>
                     </div>
                     <div className={styles.viewer}>

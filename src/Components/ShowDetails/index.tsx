@@ -19,7 +19,9 @@ function ShowDetails({ course }: Props) {
     return (
         <div className={styles.ShowDetails}>
             <div className={styles.card__header}>
-                <img src='/image/avatar-showDetails.png' alt='avatarDetails' />
+                <img src='/image/avatar-showDetails.png' alt='avatarDetails'
+                    loading="lazy"
+                />
                 <span className={cls('ml-1', styles.card__title)}>Elun Musk Ricard</span>
             </div>
             <h6>{tenKhoaHoc}</h6>

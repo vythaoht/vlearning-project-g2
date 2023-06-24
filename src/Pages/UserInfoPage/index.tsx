@@ -189,7 +189,9 @@ function UserInfoPage({ }: Props) {
                             <td>
                                 <img src={item.hinhAnh} alt={item.tenKhoaHoc}
                                     width="75px"
-                                    height="75px" />
+                                    height="75px"
+                                    loading="lazy"
+                                />
                             </td>
                             <td>{item.maKhoaHoc}</td>
                             <td>{item.tenKhoaHoc}</td>
