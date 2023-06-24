@@ -149,7 +149,7 @@ function RegisterForm({ }: Props) {
                     })}
                 >
                     <option value="">Mã nhóm</option>
-                    <option value="GP02">GP02</option>
+                    <option value="GP01">GP01</option>
                 </select>
                 {errors.maNhom && <p>{errors.maNhom.message}</p>}
                 <Button
