@@ -14,7 +14,7 @@ export const courseCategoriesRequest = async () => {
 export const coursesByCategoryIdRequest = async (categoryId: string) => {
   try {
     const response = await axiosClient.get(
-      `/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${categoryId}&MaNhom=GP01`
+      `/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${categoryId}&MaNhom=GP02`
     );
     return response.data;
   } catch (error) {
@@ -26,7 +26,7 @@ export const coursesByCategoryIdRequest = async (categoryId: string) => {
 export const listCourseBySearching = async (courseName: string) => {
   try {
     const response = await axiosClient.get(
-      `/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${courseName}&MaNhom=GP01`
+      `/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${courseName}&MaNhom=GP02`
     );
     return response.data;
   } catch (error) {
@@ -49,9 +49,7 @@ export const getCourseInfoAPI = async (courseId: string) => {
 // call API lấy danh sách khóa học
 export const getCourseListAPI = async () => {
   try {
-    const response = await axiosClient.get(
-      `/QuanLyKhoaHoc/LayDanhSachKhoaHoc`
-    );
+    const response = await axiosClient.get(`/QuanLyKhoaHoc/LayDanhSachKhoaHoc`);
     return response.data;
   } catch (error) {
     throw error;
